@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.destination.model.country.Data
 import com.example.destination.network.API
 import com.example.destination.network.RetrofitClient
 import kotlinx.android.synthetic.main.fragment_home.*

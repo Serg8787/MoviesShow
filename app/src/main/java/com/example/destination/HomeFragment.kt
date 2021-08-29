@@ -7,13 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.destination.model.country.Data
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.destination.model.Show
 import com.example.destination.network.API
 import com.example.destination.network.RetrofitClient
+
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 
 /**
@@ -41,36 +43,26 @@ class HomeFragment : Fragment() {
 
 
         btSend.setOnClickListener {
-            val country:String = etEnterCountry.text.toString()
-            getId(country)
-            Log.d("MyLog","Mistake")
+            getData()
+            Log.d("MyLog","кнопка нажата")
         }
-
-
-
     }
-    fun getId(country:String){
-        val retrofit = RetrofitClient.getClient(getString(R.string.base_url)).create(API::class.java)
-        retrofit.searchID(country)
-            .enqueue(object : Callback<Data> {
+    fun getData(){
+        val retrofit = RetrofitClient.getClient("https://api.tvmaze.com/search/").create(API::class.java)
+        retrofit.search("girls")
+            .enqueue(object : retrofit2.Callback<Show> {
                 override fun onResponse(
-                    call: Call<Data>,
-                    response: Response<Data>
+                    call: Call<Show>,
+                    response: Response<Show>
                 ) {
                     if (response.body() != null) {
-                        tvIdCountry.text = response.body().toString()
-                        Log.d("MyLog",response.body().toString())
+                        Log.d("MyLog","good" + response.body().toString())
                     }
                 }
 
-                override fun onFailure(call: Call<Data>, t: Throwable) {
-                    Toast.makeText(context,"Ошибка", Toast.LENGTH_LONG).show()
-                    Log.d("MyLog","Mistake")
+                override fun onFailure(call: Call<Show>, t: Throwable) {
+                    Log.d("MyLog","good" + t.toString())
                 }
             })
-
     }
-
-
-
 }

@@ -1,28 +1,10 @@
 package com.example.destination.network
 
-import com.example.destination.model.country.Data
+import com.example.destination.model.Show
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface API {
-    // знак вопроса в конце оставляем
-    @GET("auto_complete")
-    fun searchID(
-        @Query("q") query: String,
-    ): Call<Data>
-//
-//
-//
-//    // для теста убрал знак вопроса
-//    @GET("users/{login}/repos")
-//    fun getListRepo(
-//        @Path("login") login:String
-//    ): Call<Repo>
 
-
-
-
-
-}
+    @GET("shows?")
+    fun search(@Query("q") query: String): Call<Show>}
