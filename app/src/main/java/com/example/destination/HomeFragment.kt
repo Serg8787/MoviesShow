@@ -40,18 +40,10 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-        btSend.setOnClickListener {
             getPopularityMoviesData()
             getTopRatedMoviesData()
             getLatestMoviesData()
 
-            Log.d("MyLog","кнопка нажата")
-//            Log.d("MyLog","good"+response.body().toString())
-//            Log.d("MyLog","bad"+t.toString())
-
-        }
     }
     fun getPopularityMoviesData(){
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)

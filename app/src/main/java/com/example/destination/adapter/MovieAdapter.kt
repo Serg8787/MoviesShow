@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.destination.R
 import com.example.destination.model.MovieResult
 import kotlinx.android.synthetic.main.movie_item.view.*
@@ -18,7 +19,8 @@ class MovieAdapter(val context: Context,val movieList:ArrayList<MovieResult>) :R
 
     override fun onBindViewHolder(holder: ViewHolderMovie, position: Int) {
         holder.tittle.text = movieList[position].title
-        holder.overview.text = movieList[position].overview
+        Glide.with(context).load("https://image.tmdb.org/t/p/w500/"+movieList[position].poster_path).placeholder(android.R.drawable.btn_default)
+            .into(holder.poster);
     }
 
     override fun getItemCount(): Int {
@@ -27,6 +29,6 @@ class MovieAdapter(val context: Context,val movieList:ArrayList<MovieResult>) :R
 }
 class ViewHolderMovie(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val tittle = itemView.tvTitleMovieItem
-    val overview = itemView.tvOverviewMovieItem
+    val poster = itemView.ivPoster
 
 }
