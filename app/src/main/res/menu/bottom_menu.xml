@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:title="Movie"
+        android:icon="@android:drawable/btn_minus" />
+    <item
+        android:id="@+id/showFragment"
+        android:title="Show"
+        android:icon="@android:drawable/btn_plus" />
+    <item
+        android:id="@+id/serialFragment"
+        android:title="Serial"
+        android:icon="@android:drawable/btn_dialog"/>
+</menu>

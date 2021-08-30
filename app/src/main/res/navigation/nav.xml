@@ -37,4 +37,14 @@
         android:name="com.example.destination.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/showFragment"
+        android:name="com.example.destination.ShowFragment"
+        android:label="fragment_show"
+        tools:layout="@layout/fragment_show" />
+    <fragment
+        android:id="@+id/serialFragment"
+        android:name="com.example.destination.SerialFragment"
+        android:label="fragment_serial"
+        tools:layout="@layout/fragment_serial" />
 </navigation>
