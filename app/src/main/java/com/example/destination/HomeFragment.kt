@@ -42,7 +42,8 @@ class HomeFragment : Fragment() {
         btSend.setOnClickListener {
 //            getPopularityMoviesData()
 //            getLatestMoviesData()
-            getTopRatedMoviesData()
+//            getTopRatedMoviesData()
+            getLatestMoviesData()
 
             Log.d("MyLog","кнопка нажата")
 //            Log.d("MyLog","good"+response.body().toString())
@@ -84,7 +85,7 @@ class HomeFragment : Fragment() {
     }
     fun getLatestMoviesData(){
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
-        retrofit.getGetLatestMovies("fa98e12ff4452abc0e83ab5585e62d3c")
+        retrofit.getNowPlayningMovies("fa98e12ff4452abc0e83ab5585e62d3c")
             .enqueue(object : retrofit2.Callback<Movie> {
                 override fun onResponse(
                     call: Call<Movie>,

@@ -13,6 +13,6 @@ interface API {
     fun getTopRatedMovies(@Query("api_key") apiKey: String): Call<Movie>
 
 
-    @GET("movie/latest")
-    fun getGetLatestMovies(@Query("api_key") apiKey: String): Call<Movie>
+    @GET("movie/now_playing")
+    fun getNowPlayningMovies(@Query("api_key") apiKey: String): Call<Movie>
 }
