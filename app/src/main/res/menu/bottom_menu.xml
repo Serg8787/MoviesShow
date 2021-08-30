@@ -4,13 +4,13 @@
     <item
         android:id="@+id/homeFragment"
         android:title="Movie"
-        android:icon="@android:drawable/btn_minus" />
+        android:icon="@drawable/icons8_movie" />
     <item
         android:id="@+id/showFragment"
         android:title="Show"
-        android:icon="@android:drawable/btn_plus" />
+        android:icon="@drawable/icons8_show" />
     <item
         android:id="@+id/serialFragment"
         android:title="Serial"
-        android:icon="@android:drawable/btn_dialog"/>
+        android:icon="@drawable/icons8_serial"/>
 </menu>
