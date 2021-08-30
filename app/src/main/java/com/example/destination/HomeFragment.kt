@@ -50,13 +50,14 @@ class HomeFragment : Fragment() {
     }
     fun getData(){
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
-        retrofit.getPopularityMovies("66c1dcaa74f355836a9837152fe2a997")
+        retrofit.getPopularityMovies("fa98e12ff4452abc0e83ab5585e62d3c",1)
             .enqueue(object : retrofit2.Callback<Moviepopular> {
                 override fun onResponse(
                     call: Call<Moviepopular>,
                     response: Response<Moviepopular>
                 ) {
-                    Log.d("MyLog","good"+response.body().toString())
+                    Log.d("MyLog","good"+response.body()!!.results)
+
                 }
 
                 override fun onFailure(call: Call<Moviepopular>, t: Throwable) {

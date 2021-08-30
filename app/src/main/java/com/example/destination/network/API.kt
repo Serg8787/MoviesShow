@@ -7,6 +7,6 @@ import retrofit2.http.*
 
 interface API {
 
-    @GET("movie/popular")
-    fun getPopularityMovies(@Query("api_key") apiKey: String): Call<Moviepopular>
+    @GET("movie/top_rated/")
+    fun getPopularityMovies(@Query("api_key") apiKey: String,@Query("page") page: Int): Call<Moviepopular>
 }
