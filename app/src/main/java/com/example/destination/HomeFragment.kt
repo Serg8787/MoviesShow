@@ -61,7 +61,7 @@ class HomeFragment : Fragment() {
                     call: Call<MovieResponse>, response: Response<MovieResponse> ) {
                         list = response.body()!!.results as ArrayList<MovieResult>
                         adapter = MovieAdapter(context!!.applicationContext, list)
-                        rvPopularityMovie.setLayoutManager(LinearLayoutManager(context!!.applicationContext));
+                        rvPopularityMovie.layoutManager = LinearLayoutManager(context!!.applicationContext,LinearLayoutManager.HORIZONTAL, false);
                         rvPopularityMovie.setAdapter(adapter);
 
 
