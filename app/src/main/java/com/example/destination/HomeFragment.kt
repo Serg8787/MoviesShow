@@ -6,16 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.destination.model.Show
+import com.example.destination.model.Moviepopular
+import com.example.destination.model.Result
 import com.example.destination.network.API
 import com.example.destination.network.RetrofitClient
 
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 
 /**
@@ -45,24 +43,27 @@ class HomeFragment : Fragment() {
         btSend.setOnClickListener {
             getData()
             Log.d("MyLog","кнопка нажата")
+//            Log.d("MyLog","good"+response.body().toString())
+//            Log.d("MyLog","bad"+t.toString())
+
         }
     }
     fun getData(){
-        val retrofit = RetrofitClient.getClient("https://api.tvmaze.com/search/").create(API::class.java)
-        retrofit.search("girls")
-            .enqueue(object : retrofit2.Callback<Show> {
+        val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
+        retrofit.getPopularityMovies("66c1dcaa74f355836a9837152fe2a997")
+            .enqueue(object : retrofit2.Callback<Moviepopular> {
                 override fun onResponse(
-                    call: Call<Show>,
-                    response: Response<Show>
+                    call: Call<Moviepopular>,
+                    response: Response<Moviepopular>
                 ) {
-                    if (response.body() != null) {
-                        Log.d("MyLog","good" + response.body().toString())
-                    }
+                    Log.d("MyLog","good"+response.body().toString())
                 }
 
-                override fun onFailure(call: Call<Show>, t: Throwable) {
-                    Log.d("MyLog","good" + t.toString())
+                override fun onFailure(call: Call<Moviepopular>, t: Throwable) {
+                    Log.d("MyLog","bad"+t.toString())
                 }
+
+
             })
     }
 }
