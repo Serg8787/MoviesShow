@@ -45,6 +45,23 @@
        android:gravity="center"
        android:text="Мы интернациональны. Хотя мы официально поддерживаем 39 языков, у нас также есть обширные региональные данные. Ежедневно TMDB используется более чем в 180 странах."
        app:layout_constraintTop_toBottomOf="@+id/tvTwoTMDB"/>
+
+    <TextView
+        android:id="@+id/tvFourTMDB"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvThreeTMDB"
+        android:layout_marginTop="20dp"
+        android:text="Наше сообщество не имеет себе равных. Наши сотрудники и модераторы сообщества всегда готовы помочь. Мы стремимся к тому, чтобы ваш опыт работы с TMDB был просто потрясающим."
+        />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvFourTMDB"
+        android:layout_marginTop="20dp"
+        android:text="Надежная платформа. Ежедневно нашим сервисом пользуются миллионы людей, а мы обрабатываем более 3 миллиардов запросов. На протяжении многих лет мы доказали, что это услуга, которой можно доверять и на которую можно положиться."
+        tools:ignore="MissingConstraints" />
     <Button
         android:id="@+id/btNextTwo"
         android:layout_width="wrap_content"
