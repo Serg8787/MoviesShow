@@ -1,6 +1,6 @@
 package com.example.destination.model
 
-data class Moviepopular(
+data class Movie(
     val page: Int,
     val results: List<Result>,
     val total_pages: Int,

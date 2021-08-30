@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.destination.model.Moviepopular
+import com.example.destination.model.Movie
 import com.example.destination.network.API
 import com.example.destination.network.RetrofitClient
 
@@ -40,30 +40,30 @@ class HomeFragment : Fragment() {
 
 
         btSend.setOnClickListener {
-            getpopularityMoviesData()
+//            getPopularityMoviesData()
 //            getLatestMoviesData()
-//            getTopRatedMoviesData()
+            getTopRatedMoviesData()
+
             Log.d("MyLog","кнопка нажата")
 //            Log.d("MyLog","good"+response.body().toString())
 //            Log.d("MyLog","bad"+t.toString())
 
         }
     }
-    fun getpopularityMoviesData(){
+    fun getPopularityMoviesData(){
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
         retrofit.getPopularityMovies("fa98e12ff4452abc0e83ab5585e62d3c")
-            .enqueue(object : retrofit2.Callback<Moviepopular> {
+            .enqueue(object : retrofit2.Callback<Movie> {
                 override fun onResponse(
-                    call: Call<Moviepopular>,
-                    response: Response<Moviepopular> ) {
+                    call: Call<Movie>,
+                    response: Response<Movie> ) {
                     if(response.body()==null){
                         Log.d("MyLog","Popularity"+response.body()!!.results)
                     } else {
                         Log.d("MyLog","bad Popularity")
                     }
-
                 }
-                override fun onFailure(call: Call<Moviepopular>, t: Throwable) {
+                override fun onFailure(call: Call<Movie>, t: Throwable) {
                     Log.d("MyLog","bad"+t.toString())
                 }
             })
@@ -71,13 +71,13 @@ class HomeFragment : Fragment() {
     fun getTopRatedMoviesData(){
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
         retrofit.getTopRatedMovies("fa98e12ff4452abc0e83ab5585e62d3c")
-            .enqueue(object : retrofit2.Callback<Moviepopular> {
+            .enqueue(object : retrofit2.Callback<Movie> {
                 override fun onResponse(
-                    call: Call<Moviepopular>,
-                    response: Response<Moviepopular> ) {
+                    call: Call<Movie>,
+                    response: Response<Movie> ) {
                     Log.d("MyLog","TopRated "+response.body()!!.results)
                 }
-                override fun onFailure(call: Call<Moviepopular>, t: Throwable) {
+                override fun onFailure(call: Call<Movie>, t: Throwable) {
                     Log.d("MyLog","bad"+t.toString())
                 }
             })
@@ -85,13 +85,13 @@ class HomeFragment : Fragment() {
     fun getLatestMoviesData(){
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
         retrofit.getGetLatestMovies("fa98e12ff4452abc0e83ab5585e62d3c")
-            .enqueue(object : retrofit2.Callback<Moviepopular> {
+            .enqueue(object : retrofit2.Callback<Movie> {
                 override fun onResponse(
-                    call: Call<Moviepopular>,
-                    response: Response<Moviepopular> ) {
+                    call: Call<Movie>,
+                    response: Response<Movie> ) {
                     Log.d("MyLog","Latest"+response.body()!!.results)
                 }
-                override fun onFailure(call: Call<Moviepopular>, t: Throwable) {
+                override fun onFailure(call: Call<Movie>, t: Throwable) {
                     Log.d("MyLog","bad"+t.toString())
                 }
             })
