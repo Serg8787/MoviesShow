@@ -8,16 +8,43 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tvTMDB"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Второй мануал как пользоваться"
+        android:text="Преимущество TMDB"
         android:textSize="25sp"
+        android:layout_margin="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/tvFirstTMDB"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvTMDB"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Ежегодно, начиная с 2008 года, количество вкладов в нашу базу данных увеличивается. Благодаря тому, что нашу платформу используют более 400 000 разработчиков и компаний, TMDB стал главным источником метаданных."/>
 
+    <TextView
+        android:id="@+id/tvTwoTMDB"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvFirstTMDB"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="Наряду с обширными метаданными для фильмов, телешоу и людей мы также предлагаем один из лучших наборов постеров и фан-артов с высоким разрешением. В среднем каждый день добавляется более 1000 изображений."/>
+
+   <TextView
+       android:id="@+id/tvThreeTMDB"
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_margin="20dp"
+       android:gravity="center"
+       android:text="Мы интернациональны. Хотя мы официально поддерживаем 39 языков, у нас также есть обширные региональные данные. Ежедневно TMDB используется более чем в 180 странах."
+       app:layout_constraintTop_toBottomOf="@+id/tvTwoTMDB"/>
     <Button
         android:id="@+id/btNextTwo"
         android:layout_width="wrap_content"
