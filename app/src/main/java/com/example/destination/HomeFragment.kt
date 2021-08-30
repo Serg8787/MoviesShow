@@ -44,8 +44,8 @@ class HomeFragment : Fragment() {
 
         btSend.setOnClickListener {
             getPopularityMoviesData()
-//            getTopRatedMoviesData()
-//            getLatestMoviesData()
+            getTopRatedMoviesData()
+            getLatestMoviesData()
 
             Log.d("MyLog","кнопка нажата")
 //            Log.d("MyLog","good"+response.body().toString())
@@ -78,7 +78,10 @@ class HomeFragment : Fragment() {
                 override fun onResponse(
                     call: Call<MovieResponse>,
                     response: Response<MovieResponse> ) {
-                    Log.d("MyLog","TopRated "+response.body()!!.results)
+                    list = response.body()!!.results as ArrayList<MovieResult>
+                    adapter = MovieAdapter(context!!.applicationContext, list)
+                    rvTopRatedMovie.layoutManager = LinearLayoutManager(context!!.applicationContext,LinearLayoutManager.HORIZONTAL, false);
+                    rvTopRatedMovie.setAdapter(adapter);
                 }
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                     Log.d("MyLog","bad"+t.toString())
@@ -92,7 +95,10 @@ class HomeFragment : Fragment() {
                 override fun onResponse(
                     call: Call<MovieResponse>,
                     response: Response<MovieResponse> ) {
-                    Log.d("MyLog","Latest"+response.body()!!.results)
+                    list = response.body()!!.results as ArrayList<MovieResult>
+                    adapter = MovieAdapter(context!!.applicationContext, list)
+                    rvLatestMovie.layoutManager = LinearLayoutManager(context!!.applicationContext,LinearLayoutManager.HORIZONTAL, false);
+                    rvLatestMovie.setAdapter(adapter);
                 }
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                     Log.d("MyLog","bad"+t.toString())
