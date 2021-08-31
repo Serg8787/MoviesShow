@@ -2,6 +2,8 @@ package com.example.destination
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -20,10 +22,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.hide()
 
-        val navController = findNavController(R.id.fragment)
-        bottomBar.setupWithNavController(navController)
+        bottomNavView.background = null
+        bottomNavView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.homeFragment -> Toast.makeText(this,"sdf",Toast.LENGTH_LONG).show()
+                R.id.showFragment -> Toast.makeText(this,"sdf",Toast.LENGTH_LONG).show()
+                R.id.serialFragment -> Toast.makeText(this,"sdf",Toast.LENGTH_LONG).show()
+            }
+            true
+        }
+
 
     }
+
+
 }

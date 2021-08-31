@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 /**
@@ -21,18 +23,24 @@ class SplashScreenFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {Handler().postDelayed({
+    ): View? {
+
+
+
+
+        Handler().postDelayed({
         if(onBoardingFinished()){
-            findNavController().navigate(R.id.action_splashScreenFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_splashScreenFragment_to_homeFragment2)
         }else{
             findNavController().navigate(R.id.action_splashScreenFragment_to_viewPagerFragment)
         }
-    }, 500)
+    }, 1500)
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_splash_screen, container, false)

@@ -5,10 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.destination.R
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_first_screen.view.*
 import kotlinx.android.synthetic.main.fragment_two_screen.view.*
+
+
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+
+
 
 
 /**
@@ -17,7 +27,6 @@ import kotlinx.android.synthetic.main.fragment_two_screen.view.*
  * create an instance of this fragment.
  */
 class FirstScreenFragment : Fragment() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,9 +38,11 @@ class FirstScreenFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        val view =  inflater.inflate(R.layout.fragment_first_screen, container, false)
+        val view =  inflater.inflate(com.example.destination.R.layout.fragment_first_screen, container, false)
 
-        val viewPager =  activity?.findViewById<ViewPager2>(R.id.viewPager)
+
+
+        val viewPager =  activity?.findViewById<ViewPager2>(com.example.destination.R.id.viewPager)
 
         view.btNextFirst.setOnClickListener {
             viewPager?.currentItem = 1

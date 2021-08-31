@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.example.destination.R
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_two_screen.view.*
 
 
@@ -31,6 +32,7 @@ class TwoScreenFragment : Fragment() {
         val view =  inflater.inflate(R.layout.fragment_two_screen, container, false)
 
         val viewPager =  activity?.findViewById<ViewPager2>(R.id.viewPager)
+
 
         view.btNextTwo.setOnClickListener {
             viewPager?.currentItem = 2

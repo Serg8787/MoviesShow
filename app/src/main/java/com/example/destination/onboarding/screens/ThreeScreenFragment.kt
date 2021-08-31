@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.destination.R
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_three_screen.view.*
 
 
@@ -30,8 +31,8 @@ class ThreeScreenFragment : Fragment() {
     ): View? {val view = inflater.inflate(R.layout.fragment_three_screen, container, false)
 
         view.btNextThree.setOnClickListener {
-            findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment)
-            onBoardingFinished()
+            findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment2)
+//            onBoardingFinished()
         }
 
         return view

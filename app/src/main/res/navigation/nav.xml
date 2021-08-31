@@ -16,10 +16,8 @@
             app:popUpTo="@id/splashScreenFragment"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_splashScreenFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/splashScreenFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_splashScreenFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
@@ -27,24 +25,22 @@
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
-            android:id="@+id/action_viewPagerFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/viewPagerFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_viewPagerFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/homeFragment2"
         android:name="com.example.destination.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/showFragment"
-        android:name="com.example.destination.ShowFragment"
-        android:label="fragment_show"
-        tools:layout="@layout/fragment_show" />
-    <fragment
-        android:id="@+id/serialFragment"
+        android:id="@+id/serialFragment2"
         android:name="com.example.destination.SerialFragment"
         android:label="fragment_serial"
         tools:layout="@layout/fragment_serial" />
+    <fragment
+        android:id="@+id/showFragment2"
+        android:name="com.example.destination.ShowFragment"
+        android:label="fragment_show"
+        tools:layout="@layout/fragment_show" />
 </navigation>
