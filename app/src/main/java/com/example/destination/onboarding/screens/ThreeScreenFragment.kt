@@ -32,7 +32,7 @@ class ThreeScreenFragment : Fragment() {
 
         view.btNextThree.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment2)
-//            onBoardingFinished()
+            onBoardingFinished()
         }
 
         return view

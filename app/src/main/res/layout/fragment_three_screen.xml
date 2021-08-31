@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_gray"
     tools:context=".onboarding.screens.ThreeScreenFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -23,18 +24,87 @@
         android:id="@+id/tvMoments"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Мы все их любим. Вот несколько интересных моментов."
-        app:layout_constraintTop_toBottomOf="@+id/tvStatistica"
+        android:layout_margin="20dp"
         android:gravity="center"
+        android:text="Мы все их любим. Вот несколько интересных моментов."
         android:textSize="25sp"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvStatistica"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:layout_width="0dp"
+        android:id="@+id/tvCountMusic"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text ="681,068 Фильмов"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvMoments"/>
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="72dp"
+        android:gravity="center"
+        android:text=" 681 068 \n Фильмов"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btNextThree"
+        app:layout_constraintEnd_toStartOf="@+id/tvCountSerial"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMoments"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvCountSerial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="64dp"
+        android:gravity="center"
+        android:text="2 751 866\nТелесериалы"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btNextThree"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvCountMusic"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <TextView
+        android:id="@+id/tvCountShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="115 877 \nТВ шоу"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btNextThree"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCountSerial"
+        app:layout_constraintVertical_bias="0.142" />
+
+    <TextView
+        android:id="@+id/tvCountReafct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="189dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="419 254 \n Изменения за неделю"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btNextThree"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.961"
+        app:layout_constraintStart_toStartOf="@+id/tvCountShow"
+        app:layout_constraintTop_toBottomOf="@+id/tvCountSerial"
+        app:layout_constraintVertical_bias="0.427" />
+
+    <TextView
+        android:id="@+id/tCountImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="2 854 259 \n Изображений"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btNextThree"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.323"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCountShow"
+        app:layout_constraintVertical_bias="0.612" />
 
     <Button
         android:id="@+id/btNextThree"
@@ -44,5 +114,8 @@
         android:layout_margin="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

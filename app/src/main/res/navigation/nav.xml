@@ -23,7 +23,7 @@
         android:id="@+id/viewPagerFragment"
         android:name="com.example.destination.onboarding.ViewPagerFragment"
         android:label="fragment_view_pager"
-        tools:layout="@layout/fragment_view_pager" >
+        tools:layout="@layout/fragment_view_pager">
         <action
             android:id="@+id/action_viewPagerFragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />

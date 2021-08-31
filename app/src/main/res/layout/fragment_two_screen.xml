@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_gray"
     tools:context=".onboarding.screens.TwoScreenFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/tvTMDB"
         android:layout_width="0dp"
@@ -14,53 +14,70 @@
         android:gravity="center"
         android:text="Преимущество TMDB"
         android:textSize="25sp"
-        android:layout_margin="30dp"
+        android:padding="4dp"
+        android:layout_margin="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+       />
+
     <TextView
         android:id="@+id/tvFirstTMDB"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvTMDB"
+        android:layout_margin="10dp"
         android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:text="Ежегодно, начиная с 2008 года, количество вкладов в нашу базу данных увеличивается. Благодаря тому, что нашу платформу используют более 400 000 разработчиков и компаний, TMDB стал главным источником метаданных."/>
+        android:text="@string/tmdbFirst"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTMDB"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvTwoTMDB"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvFirstTMDB"
-        android:layout_margin="20dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="Наряду с обширными метаданными для фильмов, телешоу и людей мы также предлагаем один из лучших наборов постеров и фан-артов с высоким разрешением. В среднем каждый день добавляется более 1000 изображений."/>
+        android:text="@string/tmdbTwo"
+        app:layout_constraintStart_toStartOf="@+id/tvFirstTMDB"
+        app:layout_constraintEnd_toEndOf="@+id/tvFirstTMDB"
+        app:layout_constraintTop_toBottomOf="@+id/tvFirstTMDB"
+        tools:ignore="MissingConstraints" />
 
-   <TextView
-       android:id="@+id/tvThreeTMDB"
-       android:layout_width="0dp"
-       android:layout_height="wrap_content"
-       android:layout_margin="20dp"
-       android:gravity="center"
-       android:text="Мы интернациональны. Хотя мы официально поддерживаем 39 языков, у нас также есть обширные региональные данные. Ежедневно TMDB используется более чем в 180 странах."
-       app:layout_constraintTop_toBottomOf="@+id/tvTwoTMDB"/>
+    <TextView
+        android:id="@+id/tvThreeTMDB"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/tmdbThree"
+        app:layout_constraintStart_toStartOf="@+id/tvTwoTMDB"
+        app:layout_constraintTop_toBottomOf="@+id/tvTwoTMDB"
+        app:layout_constraintEnd_toEndOf="@+id/tvTwoTMDB"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvFourTMDB"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="@string/tmdbFour"
+        app:layout_constraintStart_toStartOf="@+id/tvThreeTMDB"
         app:layout_constraintTop_toBottomOf="@+id/tvThreeTMDB"
-        android:layout_marginTop="20dp"
-        android:text="Наше сообщество не имеет себе равных. Наши сотрудники и модераторы сообщества всегда готовы помочь. Мы стремимся к тому, чтобы ваш опыт работы с TMDB был просто потрясающим."
-        />
+        app:layout_constraintEnd_toEndOf="@+id/tvThreeTMDB"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tvFourTMDB"
         android:layout_marginTop="20dp"
-        android:text="Надежная платформа. Ежедневно нашим сервисом пользуются миллионы людей, а мы обрабатываем более 3 миллиардов запросов. На протяжении многих лет мы доказали, что это услуга, которой можно доверять и на которую можно положиться."
+        android:gravity="center"
+        android:text="@string/tmdbFive"
+        app:layout_constraintStart_toStartOf="@+id/tvFourTMDB"
+        app:layout_constraintTop_toBottomOf="@+id/tvFourTMDB"
+        app:layout_constraintEnd_toEndOf="@+id/tvFourTMDB"
         tools:ignore="MissingConstraints" />
     <Button
         android:id="@+id/btNextTwo"

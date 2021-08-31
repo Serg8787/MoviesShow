@@ -34,6 +34,7 @@ class SplashScreenFragment : Fragment() {
 
 
 
+
         Handler().postDelayed({
         if(onBoardingFinished()){
             findNavController().navigate(R.id.action_splashScreenFragment_to_homeFragment2)
