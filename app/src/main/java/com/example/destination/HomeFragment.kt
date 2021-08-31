@@ -37,9 +37,6 @@ class HomeFragment : Fragment() {
         (activity as AppCompatActivity?)!!.bottomNavView.visibility = View.VISIBLE
 
 
-
-
-
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +46,7 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-//    requireActivity().nav_view.visibility = GON
+
 
 
 

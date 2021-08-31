@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.destination.network.API
@@ -23,12 +24,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         bottomNavView.background = null
         bottomNavView.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.homeFragment -> Toast.makeText(this,"sdf",Toast.LENGTH_LONG).show()
-                R.id.showFragment -> Toast.makeText(this,"sdf",Toast.LENGTH_LONG).show()
-                R.id.serialFragment -> Toast.makeText(this,"sdf",Toast.LENGTH_LONG).show()
+                R.id.homeFragment -> findNavController(R.id.fragment).navigate(R.id.homeFragment2)
+                R.id.showFragment -> findNavController(R.id.fragment).navigate(R.id.showFragment2)
+                R.id.serialFragment -> findNavController(R.id.fragment).navigate(R.id.serialFragment2)
             }
             true
         }
