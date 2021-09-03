@@ -19,8 +19,9 @@ class MovieAdapter(val context: Context,val movieList:ArrayList<MovieResult>) :R
 
     override fun onBindViewHolder(holder: ViewHolderMovie, position: Int) {
         holder.tittle.text = movieList[position].title
-        Glide.with(context).load("https://image.tmdb.org/t/p/w500/"+movieList[position].poster_path).placeholder(android.R.drawable.btn_default)
-            .into(holder.poster);
+        Glide.with(context).load("https://image.tmdb.org/t/p/w1280/"+movieList[position].backdrop_path).placeholder(android.R.drawable.btn_default)
+            .into(holder.poster)
+        holder.voteAverage.text = movieList[position].vote_average.toString()
     }
 
     override fun getItemCount(): Int {
@@ -30,5 +31,6 @@ class MovieAdapter(val context: Context,val movieList:ArrayList<MovieResult>) :R
 class ViewHolderMovie(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val tittle = itemView.tvTitleMovieItem
     val poster = itemView.ivPoster
+    val voteAverage = itemView.ivVoteAverage
 
 }
