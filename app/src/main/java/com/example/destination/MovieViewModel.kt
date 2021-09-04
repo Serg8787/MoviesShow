@@ -18,18 +18,13 @@ class MovieViewModel() : ViewModel() {
         loadPopulatyMovies()
         loadTopRatedMovies()
     }
-
-
-
     fun loadPopulatyMovies(){
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
         retrofit.getPopularityMovies("fa98e12ff4452abc0e83ab5585e62d3c")
             .enqueue(object : retrofit2.Callback<MovieResponse> {
                 override fun onResponse(
-                    call: Call<MovieResponse>, response: Response<MovieResponse>
-                ) {
+                    call: Call<MovieResponse>, response: Response<MovieResponse>) {
                     listMoviePopularity.postValue(response.body()!!.results as ArrayList<MovieResult>)
-
                 }
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                     Log.d("MyLog","Mistake"+t.message)
@@ -42,8 +37,7 @@ class MovieViewModel() : ViewModel() {
             .enqueue(object : retrofit2.Callback<MovieResponse>{
                 override fun onResponse(
                     call: Call<MovieResponse>,
-                    response: Response<MovieResponse>
-                ) {
+                    response: Response<MovieResponse>) {
                     listMovieTopRated.postValue(response.body()!!.results as ArrayList<MovieResult>)
                 }
 
