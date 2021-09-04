@@ -30,6 +30,7 @@
         android:text="Еще..."
         android:padding="5dp"
         android:textSize="22sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tvPopularity"
         app:layout_constraintBottom_toTopOf="@+id/rvPopularityMovie"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,6 +54,7 @@
         android:text="Еще..."
         android:padding="5dp"
         android:textSize="22sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/tvTopRated"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvTopRated" />

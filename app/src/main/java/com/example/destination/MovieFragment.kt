@@ -63,9 +63,7 @@ class MovieFragment : Fragment() {
             )
             adapter.movieList = it as ArrayList<MovieResult>
         })
-
     }
-
     fun getTopRatedMoviesData() {
         val adapter = MovieAdapter()
 
