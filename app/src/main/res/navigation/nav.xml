@@ -30,9 +30,9 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment2"
-        android:name="com.example.destination.HomeFragment"
+        android:name="com.example.destination.MovieFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_movie" />
     <fragment
         android:id="@+id/serialFragment2"
         android:name="com.example.destination.SerialFragment"
