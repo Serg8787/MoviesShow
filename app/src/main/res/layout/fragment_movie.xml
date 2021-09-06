@@ -22,89 +22,53 @@
         />
 
 
-    <TextView
-        android:id="@+id/tvAlso"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:text="Еще..."
-        android:padding="5dp"
-        android:textSize="22sp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/tvPopularity"
-        app:layout_constraintBottom_toTopOf="@+id/rvPopularityMovie"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvPopularity"
-        app:layout_constraintVertical_bias="0.0" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPopularityMovie"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical"
-        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPopularity" />
 
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:text="Еще..."
-        android:padding="5dp"
-        android:textSize="22sp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/tvTopRated"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvTopRated" />
 
     <TextView
         android:id="@+id/tvTopRated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:gravity="left"
+        android:padding="5dp"
         android:text="TopRated"
         android:textColor="@color/black"
-        android:gravity="left"
         android:textSize="22sp"
-        android:padding="5dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvPopularityMovie" />
-
-    <TextView
-        android:id="@+id/tvLatest"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="Latest"
-        android:gravity="left"
-        android:textColor="@color/black"
-        android:padding="5dp"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvTopRatedMovie" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/switchMoviews"
+        app:layout_constraintTop_toTopOf="@+id/switchMoviews"
+        app:layout_constraintBottom_toBottomOf="@+id/switchMoviews"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTopRatedMovie"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical"
-        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTopRated" />
+        app:layout_constraintTop_toBottomOf="@id/tvPopularity" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvLatestMovie"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLatest" />
-
+    <Switch
+        android:id="@+id/switchMoviews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:text="Switch"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPopularity"
+        app:layout_constraintStart_toEndOf="@+id/tvPopularity"
+        app:layout_constraintTop_toTopOf="@+id/tvPopularity"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

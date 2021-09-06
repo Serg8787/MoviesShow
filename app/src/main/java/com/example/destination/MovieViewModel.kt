@@ -14,17 +14,19 @@ class MovieViewModel() : ViewModel() {
 
     val listMoviePopularity = MutableLiveData<List<MovieResult>>()
     val listMovieTopRated = MutableLiveData<List<MovieResult>>()
+    var page =2
     init {
-        loadPopulatyMovies()
+//        loadPopulatyMovies(page)
         loadTopRatedMovies()
     }
-    fun loadPopulatyMovies(){
+    fun loadPopulatyMovies(page:Int){
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
-        retrofit.getPopularityMovies("fa98e12ff4452abc0e83ab5585e62d3c")
+        retrofit.getPopularityMovies("fa98e12ff4452abc0e83ab5585e62d3c",page)
             .enqueue(object : retrofit2.Callback<MovieResponse> {
                 override fun onResponse(
                     call: Call<MovieResponse>, response: Response<MovieResponse>) {
                     listMoviePopularity.postValue(response.body()!!.results as ArrayList<MovieResult>)
+
                 }
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
                     Log.d("MyLog","Mistake"+t.message)
@@ -33,7 +35,7 @@ class MovieViewModel() : ViewModel() {
     }
     fun loadTopRatedMovies(){
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
-        retrofit.getTopRatedMovies("fa98e12ff4452abc0e83ab5585e62d3c")
+        retrofit.getTopRatedMovies("fa98e12ff4452abc0e83ab5585e62d3c",page)
             .enqueue(object : retrofit2.Callback<MovieResponse>{
                 override fun onResponse(
                     call: Call<MovieResponse>,

@@ -1,7 +1,6 @@
 package com.example.destination
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,14 +21,16 @@ import kotlinx.android.synthetic.main.fragment_movie.*
  * create an instance of this fragment.
  */
 class MovieFragment : Fragment() {
-    var adapter: MovieAdapter? = null
-    var list: ArrayList<MovieResult>? = null
     private lateinit var viewModel: MovieViewModel
+    private lateinit var adapterPopularity: MovieAdapter
+    private lateinit var adapterTopRated: MovieAdapter
+    private var page = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (activity as AppCompatActivity?)!!.bottomNavView.visibility = View.VISIBLE
         viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
+
 
     }
 
@@ -44,64 +45,51 @@ class MovieFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getPopularityMoviesData()
-            getTopRatedMoviesData()
-//            getLatestMoviesData()
 
+        adapterPopularity = MovieAdapter()
+        adapterTopRated = MovieAdapter()
+        rvPopularityMovie.adapter = adapterPopularity
+        rvTopRatedMovie.adapter = adapterTopRated
+
+        getPopularityMoviesData()
+
+
+
+        switchMoviews.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(isChecked){
+                getTopRatedMoviesData()
+                rvTopRatedMovie.visibility = View.VISIBLE
+                rvPopularityMovie.visibility = View.GONE
+            }else{
+                getPopularityMoviesData()
+                rvTopRatedMovie.visibility = View.GONE
+                rvPopularityMovie.visibility = View.VISIBLE
+            }
+        }
     }
 
     fun getPopularityMoviesData() {
-        val adapter = MovieAdapter()
-        rvPopularityMovie.adapter = adapter
-
+        viewModel.loadPopulatyMovies(page)
         viewModel.listMoviePopularity.observe(viewLifecycleOwner, Observer {
-            Log.i("MyLog", "" + it)
             rvPopularityMovie.layoutManager = LinearLayoutManager(
                 MainActivity(),
-                LinearLayoutManager.HORIZONTAL,
+                LinearLayoutManager.VERTICAL,
                 false
             )
-            adapter.movieList = it as ArrayList<MovieResult>
+            adapterPopularity.movieList = it as ArrayList<MovieResult>
         })
     }
-    fun getTopRatedMoviesData() {
-        val adapter = MovieAdapter()
 
-        rvTopRatedMovie.adapter = adapter
+    fun getTopRatedMoviesData() {
         viewModel.listMovieTopRated.observe(viewLifecycleOwner, Observer {
-            Log.i("MyLog", "" + it)
             rvTopRatedMovie.layoutManager = LinearLayoutManager(
                 MainActivity(),
-                LinearLayoutManager.HORIZONTAL,
+                LinearLayoutManager.VERTICAL,
                 false
             )
-            adapter.movieList = it as ArrayList<MovieResult>
+            adapterTopRated.movieList = it as ArrayList<MovieResult>
         })
     }
 }
 
-//
-//    fun getLatestMoviesData() {
-//        val retrofit =
-//            RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
-//        retrofit.getNowPlayningMovies("fa98e12ff4452abc0e83ab5585e62d3c")
-//            .enqueue(object : retrofit2.Callback<MovieResponse> {
-//                override fun onResponse(
-//                    call: Call<MovieResponse>,
-//                    response: Response<MovieResponse>
-//                ) {
-//                    list = response.body()!!.results as ArrayList<MovieResult>
-//                    adapter = MovieAdapter(context!!.applicationContext, list)
-//                    rvLatestMovie.layoutManager = LinearLayoutManager(
-//                        context!!.applicationContext,
-//                        LinearLayoutManager.HORIZONTAL,
-//                        false
-//                    );
-//                    rvLatestMovie.setAdapter(adapter);
-//                }
-//
-//                override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
-//                    Log.d("MyLog", "bad" + t.toString())
-//                }
-//            })
 
