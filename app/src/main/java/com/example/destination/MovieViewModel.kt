@@ -16,7 +16,8 @@ class MovieViewModel() : ViewModel() {
     val listMoviePopularity = MutableLiveData<List<MovieResult>>()
     val listMovieTopRated = MutableLiveData<List<MovieResult>>()
 //    val totalPage = MutableLiveData<Int>()
-    val page = 1
+    var page: Int? = null
+
     init {
 //        loadPopulatyMovies(page)
         loadTopRatedMovies()
@@ -38,7 +39,7 @@ class MovieViewModel() : ViewModel() {
     }
     fun loadTopRatedMovies(){
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
-        retrofit.getTopRatedMovies("fa98e12ff4452abc0e83ab5585e62d3c",page)
+        retrofit.getTopRatedMovies("fa98e12ff4452abc0e83ab5585e62d3c",1)
             .enqueue(object :Callback<MovieResponse>{
                 override fun onResponse(
                     call: Call<MovieResponse>,

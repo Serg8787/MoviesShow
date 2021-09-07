@@ -39,6 +39,7 @@ class MovieAdapter :RecyclerView.Adapter<ViewHolderMovie>(){
     }
     @SuppressLint("NotifyDataSetChanged")
     fun addList(items:ArrayList<MovieResult>){
+        movieList.clear()
         movieList.addAll(items)
         notifyDataSetChanged()
 

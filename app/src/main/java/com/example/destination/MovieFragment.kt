@@ -36,6 +36,7 @@ class MovieFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
 
 
+
     }
 
     override fun onCreateView(
@@ -44,14 +45,15 @@ class MovieFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_movie, container, false)
+
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupRecyclerView()
-        getPopularityMoviesData()
+
+        getPopularityMoviesData(page)
 
         rvPopularityMovie.addOnScrollListener(object :RecyclerView.OnScrollListener(){
             @SuppressLint("NotifyDataSetChanged")
@@ -62,8 +64,7 @@ class MovieFragment : Fragment() {
                 val totalPage = 1000
                 if(page < totalPage) {
                     if(visibleItemCont + pastVisibleItem >=total){
-
-                        getPopularityMoviesData()
+                        getPopularityMoviesData(page)
                         page++
                     }
                 }
@@ -73,30 +74,25 @@ class MovieFragment : Fragment() {
 
         switchMoviews.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
-
                 getTopRatedMoviesData()
                 rvTopRatedMovie.visibility = View.VISIBLE
                 rvPopularityMovie.visibility = View.GONE
             }else{
-                getPopularityMoviesData()
+                getPopularityMoviesData(page)
                 rvTopRatedMovie.visibility = View.GONE
                 rvPopularityMovie.visibility = View.VISIBLE
             }
         }
     }
 
-
-    fun getPopularityMoviesData() {
+    fun getPopularityMoviesData(page:Int) {
         viewModel.loadPopulatyMovies(page)
         viewModel.listMoviePopularity.observe(viewLifecycleOwner, Observer {
             val oldCount = it.size
-            adapterPopularity.movieList.addAll(it)
-//            adapterPopularity.addList(it as ArrayList<MovieResult>)
+//            adapterPopularity.movieList.addAll(it)
+            adapterPopularity.addList(it as ArrayList<MovieResult>)
             adapterPopularity.notifyItemRangeChanged(oldCount,adapterPopularity.movieList.size)
         })
-
-
-
     }
 
     fun getTopRatedMoviesData() {
@@ -107,13 +103,10 @@ class MovieFragment : Fragment() {
     fun setupRecyclerView(){
         adapterPopularity = MovieAdapter()
         rvPopularityMovie.adapter = adapterPopularity
-        rvPopularityMovie.setHasFixedSize(true)
 
 
         adapterTopRated = MovieAdapter()
         rvTopRatedMovie.adapter = adapterTopRated
-        rvTopRatedMovie.setHasFixedSize(true)
-
     }
 }
 
