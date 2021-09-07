@@ -26,14 +26,14 @@ class MovieAdapter :RecyclerView.Adapter<ViewHolderMovie>(){
     }
 
     override fun onBindViewHolder(holder: ViewHolderMovie, position: Int) {
-        if(movieList.size<=20){
+
             holder.tittle.text = movieList[position].title
             Glide.with(holder.itemView.context).load("https://image.tmdb.org/t/p/w1280/"+movieList[position].backdrop_path).placeholder(R.drawable.icons8_placeholder)
                 .into(holder.poster)
             holder.voteAverage.text = movieList[position].vote_average.toString()
 
 
-        }
+
 
     }
 

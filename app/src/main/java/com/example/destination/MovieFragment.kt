@@ -1,6 +1,7 @@
 package com.example.destination
 
 import android.os.Bundle
+import android.os.RecoverySystem
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.destination.adapter.MovieAdapter
 import com.example.destination.model.MovieResult
 import kotlinx.android.synthetic.main.activity_main.*
@@ -46,15 +48,9 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapterPopularity = MovieAdapter()
-        adapterTopRated = MovieAdapter()
-        rvPopularityMovie.adapter = adapterPopularity
-        rvTopRatedMovie.adapter = adapterTopRated
+        setupRecyclerView()
 
         getPopularityMoviesData()
-
-
-
         switchMoviews.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
                 getTopRatedMoviesData()
@@ -66,29 +62,53 @@ class MovieFragment : Fragment() {
                 rvPopularityMovie.visibility = View.VISIBLE
             }
         }
+
+        rvPopularityMovie.addOnScrollListener(object :RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val visibleItemCont: Int = (recyclerView.layoutManager as LinearLayoutManager).childCount
+                val pastVisibleItem:Int = (recyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+                val total = adapterPopularity.itemCount
+
+                val totalPge = 1000
+                if(page < totalPge) {
+                    if(visibleItemCont + pastVisibleItem >=total){
+                        getPopularityMoviesData()
+                        page++
+                    }
+                }
+                super.onScrolled(recyclerView, dx, dy)
+            }
+        })
+
+
+
+
+
+
     }
 
     fun getPopularityMoviesData() {
         viewModel.loadPopulatyMovies(page)
         viewModel.listMoviePopularity.observe(viewLifecycleOwner, Observer {
-            rvPopularityMovie.layoutManager = LinearLayoutManager(
-                MainActivity(),
-                LinearLayoutManager.VERTICAL,
-                false
-            )
             adapterPopularity.movieList = it as ArrayList<MovieResult>
         })
     }
 
     fun getTopRatedMoviesData() {
         viewModel.listMovieTopRated.observe(viewLifecycleOwner, Observer {
-            rvTopRatedMovie.layoutManager = LinearLayoutManager(
-                MainActivity(),
-                LinearLayoutManager.VERTICAL,
-                false
-            )
             adapterTopRated.movieList = it as ArrayList<MovieResult>
         })
+    }
+    fun setupRecyclerView(){
+        adapterPopularity = MovieAdapter()
+        rvPopularityMovie.adapter = adapterPopularity
+        rvPopularityMovie.setHasFixedSize(true)
+
+
+        adapterTopRated = MovieAdapter()
+        rvTopRatedMovie.adapter = adapterTopRated
+        rvTopRatedMovie.setHasFixedSize(true)
+
     }
 }
 

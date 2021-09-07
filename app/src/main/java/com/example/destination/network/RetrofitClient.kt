@@ -6,7 +6,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
+
     private var retrofit: Retrofit? = null
+
 
     fun getClient(baseUrl: String): Retrofit {
         if (retrofit == null) {
@@ -17,4 +19,5 @@ object RetrofitClient {
         }
         return retrofit!!
     }
+
 }
