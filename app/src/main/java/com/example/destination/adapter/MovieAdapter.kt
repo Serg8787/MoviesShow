@@ -1,5 +1,6 @@
 package com.example.destination.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -31,14 +32,21 @@ class MovieAdapter :RecyclerView.Adapter<ViewHolderMovie>(){
             Glide.with(holder.itemView.context).load("https://image.tmdb.org/t/p/w1280/"+movieList[position].backdrop_path).placeholder(R.drawable.icons8_placeholder)
                 .into(holder.poster)
             holder.voteAverage.text = movieList[position].vote_average.toString()
-
-
-
-
     }
 
     override fun getItemCount(): Int {
        return movieList.size
+    }
+    @SuppressLint("NotifyDataSetChanged")
+    fun addList(items:ArrayList<MovieResult>){
+        movieList.addAll(items)
+        notifyDataSetChanged()
+
+    }
+    @SuppressLint("NotifyDataSetChanged")
+    fun clear(){
+        movieList.clear()
+        notifyDataSetChanged()
     }
 }
 class ViewHolderMovie(itemView: View) : RecyclerView.ViewHolder(itemView) {

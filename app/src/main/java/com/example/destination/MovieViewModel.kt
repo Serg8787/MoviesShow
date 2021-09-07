@@ -15,7 +15,8 @@ class MovieViewModel() : ViewModel() {
 
     val listMoviePopularity = MutableLiveData<List<MovieResult>>()
     val listMovieTopRated = MutableLiveData<List<MovieResult>>()
-    var page =1
+//    val totalPage = MutableLiveData<Int>()
+    val page = 1
     init {
 //        loadPopulatyMovies(page)
         loadTopRatedMovies()
@@ -27,6 +28,7 @@ class MovieViewModel() : ViewModel() {
                 override fun onResponse(
                     call: Call<MovieResponse>, response: Response<MovieResponse>) {
                     listMoviePopularity.postValue(response.body()!!.results as ArrayList<MovieResult>)
+//                    totalPage.postValue(response.body()!!.total_pages)
 
                 }
                 override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
