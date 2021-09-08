@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.homeFragment -> findNavController(R.id.fragment).navigate(R.id.homeFragment2)
                 R.id.showFragment -> findNavController(R.id.fragment).navigate(R.id.showFragment2)
                 R.id.serialFragment -> findNavController(R.id.fragment).navigate(R.id.serialFragment2)
+                R.id.SettingFragment -> findNavController(R.id.fragment).navigate(R.id.settingFragment)
             }
             true
         }

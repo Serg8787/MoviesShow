@@ -17,4 +17,10 @@
         android:title="Serial"
         android:icon="@drawable/icons8_serial"
         app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/SettingFragment"
+        android:title="Setting"
+        android:icon="@drawable/icons8_setting"
+        app:showAsAction="ifRoom"/>
 </menu>

@@ -43,4 +43,9 @@
         android:name="com.example.destination.ShowFragment"
         android:label="fragment_show"
         tools:layout="@layout/fragment_show" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.destination.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
 </navigation>
