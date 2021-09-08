@@ -16,6 +16,10 @@ import com.example.destination.adapter.MovieAdapter
 import com.example.destination.model.MovieResult
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movie.*
+import com.example.destination.adapter.OnBottomReachedListener
+
+
+
 
 
 /**
@@ -33,7 +37,7 @@ class MovieFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (activity as AppCompatActivity?)!!.bottomNavView.visibility = View.VISIBLE
-        viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
+
 
 
 
@@ -51,62 +55,45 @@ class MovieFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
         setupRecyclerView()
 
-        getPopularityMoviesData(page)
+        getPopularityMoviesData()
 
+
+
+
+
+
+
+    }
+
+    fun getPopularityMoviesData() {
+        viewModel.listMoviePopularity.observe(viewLifecycleOwner, Observer {
+            adapterPopularity.updateList(it as ArrayList<MovieResult>)
+        })
+        viewModel.loadPopulatyMovies(page)
         rvPopularityMovie.addOnScrollListener(object :RecyclerView.OnScrollListener(){
-            @SuppressLint("NotifyDataSetChanged")
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                val visibleItemCont: Int = (recyclerView.layoutManager as LinearLayoutManager).childCount
-                val pastVisibleItem:Int = (recyclerView.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
-                val total = adapterPopularity.itemCount
-                val totalPage = 1000
-                if(page < totalPage) {
-                    if(visibleItemCont + pastVisibleItem >=total){
-                        getPopularityMoviesData(page)
-                        page++
-                    }
+                val totalItemCount = (rvPopularityMovie.layoutManager as LinearLayoutManager).itemCount
+                val visibleItemCount: Int = (rvPopularityMovie.layoutManager as LinearLayoutManager).childCount
+                val firstVisibleItem:Int = (rvPopularityMovie.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+
+                if (firstVisibleItem + visibleItemCount >= totalItemCount / 2) {
+                    rvPopularityMovie.removeOnScrollListener(this)
+                    page++
+                    getPopularityMoviesData()
                 }
                 super.onScrolled(recyclerView, dx, dy)
             }
         })
-
-        switchMoviews.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked){
-                getTopRatedMoviesData()
-                rvTopRatedMovie.visibility = View.VISIBLE
-                rvPopularityMovie.visibility = View.GONE
-            }else{
-                getPopularityMoviesData(page)
-                rvTopRatedMovie.visibility = View.GONE
-                rvPopularityMovie.visibility = View.VISIBLE
-            }
-        }
     }
 
-    fun getPopularityMoviesData(page:Int) {
-        viewModel.loadPopulatyMovies(page)
-        viewModel.listMoviePopularity.observe(viewLifecycleOwner, Observer {
-            val oldCount = it.size
-//            adapterPopularity.movieList.addAll(it)
-            adapterPopularity.addList(it as ArrayList<MovieResult>)
-            adapterPopularity.notifyItemRangeChanged(oldCount,adapterPopularity.movieList.size)
-        })
-    }
 
-    fun getTopRatedMoviesData() {
-        viewModel.listMovieTopRated.observe(viewLifecycleOwner, Observer {
-            adapterTopRated.movieList = it as ArrayList<MovieResult>
-        })
-    }
     fun setupRecyclerView(){
         adapterPopularity = MovieAdapter()
         rvPopularityMovie.adapter = adapterPopularity
 
-
-        adapterTopRated = MovieAdapter()
-        rvTopRatedMovie.adapter = adapterTopRated
     }
 }
 
