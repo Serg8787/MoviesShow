@@ -16,10 +16,9 @@ import com.example.destination.adapter.MovieAdapter
 import com.example.destination.model.MovieResult
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movie.*
-import com.example.destination.adapter.OnBottomReachedListener
-
-
-
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.BaseTransientBottomBar
 
 
 /**
@@ -32,15 +31,11 @@ class MovieFragment : Fragment() {
     private lateinit var adapterPopularity: MovieAdapter
     private lateinit var adapterTopRated: MovieAdapter
     private var page = 1
+    private lateinit var bottomNavView: BottomNavigationView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity as AppCompatActivity?)!!.bottomNavView.visibility = View.VISIBLE
-
-
-
-
     }
 
     override fun onCreateView(
@@ -55,17 +50,11 @@ class MovieFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity?)!!.bottomNavView.visibility = View.VISIBLE
         viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
         setupRecyclerView()
 
         getPopularityMoviesData()
-
-
-
-
-
-
-
     }
 
     fun getPopularityMoviesData() {

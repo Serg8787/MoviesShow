@@ -13,13 +13,13 @@ import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MovieAdapter : RecyclerView.Adapter<ViewHolderMovie>() {
 
-    var movieList: ArrayList<MovieResult> = arrayListOf<MovieResult>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+//    var movieList: ArrayList<MovieResult> = arrayListOf<MovieResult>()
+//        set(value) {
+//            field = value
+//            notifyDataSetChanged()
+//        }
 
-    var onBottomReachedListener: OnBottomReachedListener? = null
+    private var movies: MutableList<MovieResult> = arrayListOf()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMovie {
@@ -30,28 +30,26 @@ class MovieAdapter : RecyclerView.Adapter<ViewHolderMovie>() {
 
     override fun onBindViewHolder(holder: ViewHolderMovie, position: Int) {
 
-        holder.tittle.text = movieList[position].title
+        holder.tittle.text = movies[position].title
         Glide.with(holder.itemView.context)
-            .load("https://image.tmdb.org/t/p/w1280/" + movieList[position].backdrop_path)
+            .load("https://image.tmdb.org/t/p/w1280/" + movies[position].backdrop_path)
             .placeholder(R.drawable.icons8_placeholder)
             .into(holder.poster)
-        holder.voteAverage.text = movieList[position].vote_average.toString()
+        holder.voteAverage.text = movies[position].vote_average.toString()
 
-        if (position == movieList.size - 5){
-            onBottomReachedListener?.onBottomReached(position);
-        }
+
     }
 
     override fun getItemCount(): Int {
-        return movieList.size
+        return movies.size
     }
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateList(items: ArrayList<MovieResult>) {
-        movieList.addAll(items)
+        movies.addAll(items)
         notifyItemRangeInserted(
-            this.movieList.size,
-            movieList.size - 1 ) }
+            this.movies.size,
+            movies.size - 1 ) }
 
 
     }
@@ -63,12 +61,4 @@ class ViewHolderMovie(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val poster = itemView.ivPoster
     val voteAverage = itemView.ivVoteAverage
 
-}
-
-class ViewHolderMovieProgressBar(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val progressBar = itemView.progress_bar_movie
-}
-
-interface OnBottomReachedListener {
-    fun onBottomReached(position: Int)
 }
