@@ -58,10 +58,11 @@ class MovieFragment : Fragment() {
     }
 
     fun getPopularityMoviesData() {
+        viewModel.loadPopulatyMovies(page)
         viewModel.listMoviePopularity.observe(viewLifecycleOwner, Observer {
             adapterPopularity.updateList(it as ArrayList<MovieResult>)
         })
-        viewModel.loadPopulatyMovies(page)
+
         rvPopularityMovie.addOnScrollListener(object :RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val totalItemCount = (rvPopularityMovie.layoutManager as LinearLayoutManager).itemCount
