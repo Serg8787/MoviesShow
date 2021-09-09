@@ -1,9 +1,11 @@
 package com.example.destination
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -11,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.destination.adapter.MovieAdapter
+import com.example.destination.adapter.OnClickMovieItem
 import com.example.destination.model.movie.MovieResult
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movie.*
@@ -60,6 +63,12 @@ class MovieFragment : Fragment() {
                 rvTopRatedMovie.visibility = View.VISIBLE
                 rvPopularityMovie.visibility = View.GONE
 
+            }
+        }
+
+        adapterPopularityMovies.onClickMovieItem = object : OnClickMovieItem{
+            override fun itemMovieSelected(movieResult: MovieResult) {
+                Toast.makeText(context, ""+ movieResult.title, Toast.LENGTH_LONG).show()
             }
         }
 
