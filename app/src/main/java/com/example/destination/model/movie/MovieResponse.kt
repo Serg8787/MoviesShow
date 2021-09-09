@@ -1,4 +1,4 @@
-package com.example.destination.model
+package com.example.destination.model.movie
 
 data class MovieResponse(
     var page: Int,

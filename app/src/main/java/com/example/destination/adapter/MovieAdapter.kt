@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.destination.R
-import com.example.destination.model.MovieResult
-import kotlinx.android.synthetic.main.item_loading_movie.view.*
+import com.example.destination.model.movie.MovieResult
 import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MovieAdapter : RecyclerView.Adapter<ViewHolderMovie>() {
@@ -20,6 +19,7 @@ class MovieAdapter : RecyclerView.Adapter<ViewHolderMovie>() {
 //        }
 
     private var movies: MutableList<MovieResult> = arrayListOf()
+    var onClickMovieItem: OnClickMovieItem? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMovie {
@@ -30,14 +30,13 @@ class MovieAdapter : RecyclerView.Adapter<ViewHolderMovie>() {
 
     override fun onBindViewHolder(holder: ViewHolderMovie, position: Int) {
 
-        holder.tittle.text = movies[position].title
+        holder.tittleMovie.text = movies[position].title
         Glide.with(holder.itemView.context)
             .load("https://image.tmdb.org/t/p/w1280/" + movies[position].backdrop_path)
             .placeholder(R.drawable.icons8_placeholder)
-            .into(holder.poster)
-        holder.voteAverage.text = movies[position].vote_average.toString()
-
-
+            .into(holder.posterMovie)
+        holder.voteAverageMovie.text = movies[position].vote_average.toString()
+        holder.root.setOnClickListener { onClickMovieItem?.itemMovieSelected(movies[position]) }
     }
 
     override fun getItemCount(): Int {
@@ -45,20 +44,23 @@ class MovieAdapter : RecyclerView.Adapter<ViewHolderMovie>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateList(items: ArrayList<MovieResult>) {
-        movies.addAll(items)
+    fun updateList(itemsMovies: ArrayList<MovieResult>) {
+        movies.addAll(itemsMovies)
         notifyItemRangeInserted(
             this.movies.size,
-            movies.size - 1 ) }
-
-
+            movies.size - 1
+        )
     }
-
-
+}
 
 class ViewHolderMovie(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val tittle = itemView.tvTitleMovieItem
-    val poster = itemView.ivPoster
-    val voteAverage = itemView.ivVoteAverage
+    val tittleMovie = itemView.tvTitleMovieItem
+    val posterMovie = itemView.ivPosterMovie
+    val voteAverageMovie = itemView.ivVoteAverageMovie
+    val root = itemView.clMovieRoot
 
+}
+
+interface OnClickMovieItem {
+    fun itemMovieSelected(movieResult: MovieResult)
 }

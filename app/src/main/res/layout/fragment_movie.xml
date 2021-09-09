@@ -9,10 +9,10 @@
     tools:context=".MovieFragment">
 
     <TextView
-        android:id="@+id/tvPopularity"
+        android:id="@+id/tvPopularityMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Populaity"
+        android:text="Top Rated"
         android:gravity="left"
         android:textColor="@color/black"
         android:padding="5dp"
@@ -34,15 +34,15 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNavViewAnonim"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvPopularity" />
+        app:layout_constraintTop_toBottomOf="@id/tvPopularityMovie" />
 
     <TextView
-        android:id="@+id/tvTopRated"
+        android:id="@+id/tvTopRatedMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left"
         android:padding="5dp"
-        android:text="TopRated"
+        android:text="Popularity"
         android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +60,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottomNavViewAnonim"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvPopularity" />
+        app:layout_constraintTop_toBottomOf="@id/tvPopularityMovie" />
 
     <Switch
         android:id="@+id/switchMoviews"
@@ -69,9 +69,9 @@
         android:layout_marginStart="44dp"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvPopularity"
-        app:layout_constraintStart_toEndOf="@+id/tvPopularity"
-        app:layout_constraintTop_toTopOf="@+id/tvPopularity"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPopularityMovie"
+        app:layout_constraintStart_toEndOf="@+id/tvPopularityMovie"
+        app:layout_constraintTop_toTopOf="@+id/tvPopularityMovie"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 

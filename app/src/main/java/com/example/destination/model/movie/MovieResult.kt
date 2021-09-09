@@ -1,4 +1,4 @@
-package com.example.destination.model
+package com.example.destination.model.movie
 
 data class MovieResult(
     val adult: Boolean,

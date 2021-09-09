@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    app:cardCornerRadius="3dp"
-    android:id="@+id/clMovieRoot">
+    app:cardCornerRadius="3dp">
 
     <ImageView
-        android:id="@+id/ivPosterMovie"
+        android:id="@+id/ivPosterShow"
         android:layout_width="200dp"
         android:layout_height="120dp"
         android:layout_margin="3dp"
@@ -18,41 +17,40 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvTitleMovieItem"
+        android:id="@+id/tvTitleShowItem"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="tvTitleMovieItem"
+        android:text="tvTitleShowItem"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.546"
-        app:layout_constraintStart_toEndOf="@+id/ivPosterMovie"
+        app:layout_constraintStart_toEndOf="@+id/ivPosterShow"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.48" />
 
     <ImageView
-        android:id="@+id/ivOrangeMovie"
+        android:id="@+id/ivOrangeShow"
         android:layout_width="60dp"
         android:layout_height="20dp"
         android:layout_marginBottom="4dp"
         android:background="@android:color/holo_orange_light"
-        app:layout_constraintBottom_toBottomOf="@+id/ivPosterMovie"
-        app:layout_constraintEnd_toEndOf="@+id/ivPosterMovie"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPosterShow"
+        app:layout_constraintEnd_toEndOf="@+id/ivPosterShow"
         app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/ivVoteAverageMovie"
+        android:id="@+id/ivVoteAverageShow"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_margin="5dp"
         android:text="00"
-        app:layout_constraintTop_toTopOf="@id/ivOrangeMovie"
-        app:layout_constraintBottom_toBottomOf="@+id/ivPosterMovie"
-        app:layout_constraintEnd_toEndOf="@+id/ivOrangeMovie"
-        app:layout_constraintStart_toStartOf="@+id/ivOrangeMovie" />
+        app:layout_constraintTop_toTopOf="@id/ivOrangeShow"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPosterShow"
+        app:layout_constraintEnd_toEndOf="@+id/ivOrangeShow"
+        app:layout_constraintStart_toStartOf="@+id/ivOrangeShow" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-
