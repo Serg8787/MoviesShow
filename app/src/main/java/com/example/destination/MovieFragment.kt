@@ -70,7 +70,7 @@ class MovieFragment : Fragment() {
         adapterPopularityMovies.onClickMovieItem = object : OnClickMovieItem{
             override fun itemMovieSelected(movieResult: MovieResult) {
                 Toast.makeText(context, ""+ movieResult.title, Toast.LENGTH_LONG).show()
-                findNavController().navigate(R.id.action_homeFragment2_to_movieDetailFragment,movieResult)
+              findNavController().navigate()
             }
         }
 

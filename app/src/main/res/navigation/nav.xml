@@ -17,7 +17,7 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashScreenFragment_to_homeFragment2"
-            app:destination="@id/homeFragment2" />
+            app:destination="@id/movieFragment" />
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
@@ -26,15 +26,16 @@
         tools:layout="@layout/fragment_view_pager">
         <action
             android:id="@+id/action_viewPagerFragment_to_homeFragment2"
-            app:destination="@id/homeFragment2" />
+            app:destination="@id/movieFragment" />
     </fragment>
     <fragment
-        android:id="@+id/homeFragment2"
+        android:id="@+id/movieFragment"
         android:name="com.example.destination.MovieFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_movie" >
+        tools:layout="@layout/fragment_movie">
+
         <action
-            android:id="@+id/action_homeFragment2_to_movieDetailFragment"
+            android:id="@+id/action_movieFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment" />
         <argument
             android:name="movie"
@@ -62,6 +63,6 @@
         tools:layout="@layout/fragment_movie_detail" >
         <action
             android:id="@+id/action_movieDetailFragment_to_homeFragment2"
-            app:destination="@id/homeFragment2" />
+            app:destination="@id/movieFragment" />
     </fragment>
 </navigation>

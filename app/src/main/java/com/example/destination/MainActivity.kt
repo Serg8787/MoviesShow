@@ -2,7 +2,6 @@ package com.example.destination
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -14,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavView.background = null
         bottomNavView.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.homeFragment -> findNavController(R.id.fragment).navigate(R.id.homeFragment2)
+                R.id.homeFragment -> findNavController(R.id.fragment).navigate(R.id.movieFragment)
                 R.id.showFragment -> findNavController(R.id.fragment).navigate(R.id.showFragment2)
                 R.id.serialFragment -> findNavController(R.id.fragment).navigate(R.id.serialFragment2)
                 R.id.SettingFragment -> findNavController(R.id.fragment).navigate(R.id.settingFragment)
