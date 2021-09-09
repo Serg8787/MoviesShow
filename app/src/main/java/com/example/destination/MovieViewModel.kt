@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.destination.model.movie.MovieResponse
 import com.example.destination.model.movie.MovieResult
+import com.example.destination.models.show.ShowResponse
+import com.example.destination.models.show.ShowResult
 import com.example.destination.network.API
 import com.example.destination.network.RetrofitClient
 import retrofit2.Call
@@ -45,4 +47,5 @@ class MovieViewModel() : ViewModel() {
                 }
             })
     }
+
 }

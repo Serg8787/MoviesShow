@@ -32,7 +32,14 @@
         android:id="@+id/homeFragment2"
         android:name="com.example.destination.MovieFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_movie" />
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_homeFragment2_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+        <argument
+            android:name="movie"
+            app:argType="com.example.destination.model.movie.MovieResult" />
+    </fragment>
     <fragment
         android:id="@+id/serialFragment2"
         android:name="com.example.destination.SerialFragment"
@@ -48,4 +55,13 @@
         android:name="com.example.destination.SettingFragment"
         android:label="fragment_setting"
         tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.example.destination.MovieDetailFragment"
+        android:label="fragment_movie_detail"
+        tools:layout="@layout/fragment_movie_detail" >
+        <action
+            android:id="@+id/action_movieDetailFragment_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+    </fragment>
 </navigation>

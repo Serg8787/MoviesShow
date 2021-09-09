@@ -1,5 +1,9 @@
 package com.example.destination.models.show
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class ShowResult(
     val backdrop_path: String,
     val first_air_date: String,
@@ -14,4 +18,4 @@ data class ShowResult(
     val poster_path: String,
     val vote_average: Double,
     val vote_count: Int
-)
+) :Parcelable

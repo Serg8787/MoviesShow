@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.destination.adapter.MovieAdapter
@@ -69,6 +70,7 @@ class MovieFragment : Fragment() {
         adapterPopularityMovies.onClickMovieItem = object : OnClickMovieItem{
             override fun itemMovieSelected(movieResult: MovieResult) {
                 Toast.makeText(context, ""+ movieResult.title, Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_homeFragment2_to_movieDetailFragment,movieResult)
             }
         }
 
