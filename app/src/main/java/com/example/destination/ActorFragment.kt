@@ -8,7 +8,11 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.destination.adapter.ActorAdapter
+import com.example.destination.adapter.OnClickActorItem
 import com.example.destination.model.actors.ActorResult
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_actor.*
@@ -26,7 +30,6 @@ private const val ARG_PARAM2 = "param2"
 class ActorFragment : Fragment() {
     private lateinit var viewModel:ActorViewModel
     private lateinit var adapterPopularityActor: ActorAdapter
-    private lateinit var adapterLatestActor: ActorAdapter
     private var page = 1
 
 
@@ -54,18 +57,18 @@ class ActorFragment : Fragment() {
         getPopularityActorData()
 
 
-
-
-
-
+        adapterPopularityActor.onClickActorItem = object : OnClickActorItem{
+            override fun itemActorSelected(actorResult: ActorResult) {
+                val args = Bundle().apply {
+                    putParcelable("actor",actorResult)
+                }
+                findNavController().navigate(R.id.action_actorFragment_to_actorDeteilFragment,args)
+            }
+        }
     }
     fun setupRecyclerView(){
         adapterPopularityActor = ActorAdapter()
         rvPopularityActors.adapter = adapterPopularityActor
-
-
-        adapterLatestActor = ActorAdapter()
-        rvLatestActors.adapter = adapterLatestActor
 
     }
     fun getPopularityActorData() {
@@ -73,23 +76,22 @@ class ActorFragment : Fragment() {
         viewModel.listActorPopularity.observe(viewLifecycleOwner, Observer {
             adapterPopularityActor.updateList(it as ArrayList<ActorResult>)
         })
-//        rvPopularityActors.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-//                val totalItemCount =
-//                    (rvPopularityActors.layoutManager as LinearLayoutManager).itemCount
-//                val visibleItemCount: Int =
-//                    (rvPopularityActors.layoutManager as LinearLayoutManager).childCount
-//                val firstVisibleItem: Int =
-//                    (rvPopularityActors.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
-//
-//                if (firstVisibleItem + visibleItemCount >= totalItemCount / 2) {
-//                    rvPopularityActors.removeOnScrollListener(this)
-//                    page++
-//                    getPopularityActorData()
-//                }
-//                super.onScrolled(recyclerView, dx, dy)
-//            }
-//        })
-    }
+        rvPopularityActors.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val totalItemCount =
+                    (rvPopularityActors.layoutManager as LinearLayoutManager).itemCount
+                val visibleItemCount: Int =
+                    (rvPopularityActors.layoutManager as LinearLayoutManager).childCount
+                val firstVisibleItem: Int =
+                    (rvPopularityActors.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
 
+                if (firstVisibleItem + visibleItemCount >= totalItemCount / 2) {
+                    rvPopularityActors.removeOnScrollListener(this)
+                    page++
+                    getPopularityActorData()
+                }
+                super.onScrolled(recyclerView, dx, dy)
+            }
+        })
+    }
 }

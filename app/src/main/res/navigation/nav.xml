@@ -78,5 +78,18 @@
         android:id="@+id/actorFragment"
         android:name="com.example.destination.ActorFragment"
         android:label="fragment_actor"
-        tools:layout="@layout/fragment_actor" />
+        tools:layout="@layout/fragment_actor" >
+        <action
+            android:id="@+id/action_actorFragment_to_actorDeteilFragment"
+            app:destination="@id/actorDeteilFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/actorDeteilFragment"
+        android:name="com.example.destination.ActorDeteilFragment"
+        android:label="fragment_actor_deteil"
+        tools:layout="@layout/fragment_actor_deteil" >
+        <action
+            android:id="@+id/action_actorDeteilFragment_to_actorFragment"
+            app:destination="@id/actorFragment" />
+    </fragment>
 </navigation>

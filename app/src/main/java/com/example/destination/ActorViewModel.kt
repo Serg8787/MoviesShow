@@ -35,23 +35,7 @@ class ActorViewModel() : ViewModel() {
 
             })
     }
-    fun loadLatestActor(page:Int){
-        val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
-        retrofit.getLatestActors("fa98e12ff4452abc0e83ab5585e62d3c",page)
-            .enqueue(object : retrofit2.Callback<ActorResponse> {
-                override fun onResponse(
-                    call: Call<ActorResponse>,
-                    response: Response<ActorResponse>
-                ) {
-                    listActorLatest.postValue(response.body()!!.results)
-                }
 
-                override fun onFailure(call: Call<ActorResponse>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-
-            })
-    }
 
 
 
