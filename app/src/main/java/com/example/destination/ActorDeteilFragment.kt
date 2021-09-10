@@ -36,7 +36,7 @@ class ActorDeteilFragment : Fragment() {
 
         val actor: ActorResult = requireArguments().get("actor") as ActorResult
         tvNameActorDetail.text = actor.name
-        tvOriginalTitleActorDetail.text = actor.gender.toString()
+        tvOriginalTitleActorDetail.text = actor.known_for_department
 //        tvRatingMovieDetail.text = movie.vote_average.toString()
 //        tvReleaseDateMovieDetail.text = movie.release_date
 //        tvOverviewMovieDetail.text = movie.overview
