@@ -28,7 +28,7 @@ class ActorAdapter : RecyclerView.Adapter<ViewHolderActor>() {
         holder.nameActor.text = actors[position].name
         Glide.with(holder.itemView.context)
             .load("https://image.tmdb.org/t/p/w1280/" + actors[position].profile_path)
-            .placeholder(R.drawable.icons8_placeholder)
+            .placeholder(R.drawable.icons8_placeholder).circleCrop()
             .into(holder.posterShow)
         holder.voteAverageShow.text = actors[position].popularity.toString()
         holder.itemView.setOnClickListener {
