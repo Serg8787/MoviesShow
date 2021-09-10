@@ -83,6 +83,15 @@ class ShowFragment : Fragment() {
             }
 
         }
+        adapterPopularityShows.onClickShowItem = object : OnClickShowItem {
+            override fun itemShowSelected(showResult: ShowResult) {
+                val args = Bundle().apply {
+                    putParcelable("show",showResult)
+                }
+                findNavController().navigate(R.id.action_showFragment2_to_showDetailFragment,args)
+            }
+
+        }
     }
 
     fun setupRecyclerView() {

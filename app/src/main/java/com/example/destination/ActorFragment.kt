@@ -31,7 +31,7 @@ class SerialFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_serial, container, false)
+        return inflater.inflate(R.layout.fragment_actor, container, false)
 
     }
 

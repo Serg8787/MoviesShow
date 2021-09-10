@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.destination.R
 import com.example.destination.models.show.ShowResult
-import kotlinx.android.synthetic.main.item_show.view.*
+import kotlinx.android.synthetic.main.show_item.view.*
 
 class ShowAdapter : RecyclerView.Adapter<ViewHolderShow>() {
 
@@ -24,7 +24,7 @@ class ShowAdapter : RecyclerView.Adapter<ViewHolderShow>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderShow {
         return ViewHolderShow(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_show, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.show_item, parent, false)
         )
     }
 

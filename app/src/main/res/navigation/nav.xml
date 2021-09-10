@@ -45,7 +45,7 @@
         android:id="@+id/serialFragment2"
         android:name="com.example.destination.SerialFragment"
         android:label="fragment_serial"
-        tools:layout="@layout/fragment_serial" />
+        tools:layout="@layout/fragment_actor" />
     <fragment
         android:id="@+id/showFragment2"
         android:name="com.example.destination.ShowFragment"

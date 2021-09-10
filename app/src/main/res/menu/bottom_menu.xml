@@ -13,9 +13,9 @@
         android:icon="@drawable/icons8_show"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/serialFragment"
-        android:title="Serial"
-        android:icon="@drawable/icons8_serial"
+        android:id="@+id/ActorlFragment"
+        android:title="Actor"
+        android:icon="@drawable/icons8_face"
         app:showAsAction="ifRoom"/>
 
     <item

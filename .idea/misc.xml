@@ -12,12 +12,15 @@
         <entry key="..\:/Users/serg/AndroidStudioProjects/Destination/app/src/main/res/layout/fragment_view_pager.xml" value="0.18885869565217392" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/activity_main2.xml" value="0.1859375" />
+        <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/actor_layout.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/fragment_actor.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/fragment_first_screen.xml" value="0.2" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/fragment_home.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/fragment_movie.xml" value="0.1" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/fragment_movie_detail.xml" value="0.14385964912280702" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/fragment_serial.xml" value="0.196875" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/fragment_show.xml" value="0.196875" />
+        <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/fragment_show_detail.xml" value="0.22552083333333334" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/fragment_splash_screen.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/fragment_three_screen.xml" value="0.18125" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/fragment_two_screen.xml" value="0.18125" />
@@ -25,6 +28,7 @@
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/item_loading_movie.xml" value="0.23697916666666666" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/item_show.xml" value="0.16145833333333334" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/movie_item.xml" value="0.4" />
+        <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/layout/show_item.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/serg/AndroidStudioProjects/MovieShow/app/src/main/res/menu/bottom_menu.xml" value="0.196875" />
       </map>
     </option>
