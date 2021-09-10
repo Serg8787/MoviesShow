@@ -4,13 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.destination.adapter.OnClickMovieItem
+import com.example.destination.adapter.OnClickShowItem
 import com.example.destination.adapter.ShowAdapter
+import com.example.destination.model.movie.MovieResult
 import com.example.destination.models.show.ShowResult
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_movie.*
@@ -67,6 +72,16 @@ class ShowFragment : Fragment() {
                 rvPopularityShow.visibility = View.GONE
 
             }
+        }
+
+        adapterTopRatedShows.onClickShowItem = object : OnClickShowItem {
+            override fun itemShowSelected(showResult: ShowResult) {
+                val args = Bundle().apply {
+                    putParcelable("show",showResult)
+                }
+                findNavController().navigate(R.id.action_showFragment2_to_showDetailFragment,args)
+            }
+
         }
     }
 

@@ -31,8 +31,6 @@ class MovieFragment : Fragment() {
     private lateinit var adapterTopRatedMovies: MovieAdapter
     private var page = 1
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.destination.R
-import com.example.destination.model.movie.MovieResult
 import com.example.destination.models.show.ShowResult
 import kotlinx.android.synthetic.main.item_show.view.*
 
@@ -20,6 +19,7 @@ class ShowAdapter : RecyclerView.Adapter<ViewHolderShow>() {
 //        }
 
     private var shows: MutableList<ShowResult> = arrayListOf()
+    var onClickShowItem: OnClickShowItem? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderShow {
@@ -36,6 +36,9 @@ class ShowAdapter : RecyclerView.Adapter<ViewHolderShow>() {
             .placeholder(R.drawable.icons8_placeholder)
             .into(holder.posterShow)
         holder.voteAverageShow.text = shows[position].vote_average.toString()
+        holder.itemView.setOnClickListener {
+            onClickShowItem?.itemShowSelected(shows[position])
+        }
 
 
     }
@@ -50,15 +53,13 @@ class ShowAdapter : RecyclerView.Adapter<ViewHolderShow>() {
         notifyItemRangeInserted(
             this.shows.size,
             shows.size - 1 ) }
-
-
 }
-
-
-
 class ViewHolderShow(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val nameShow = itemView.tvTitleShowItem
     val posterShow = itemView.ivPosterShow
     val voteAverageShow = itemView.ivVoteAverageShow
 
+}
+interface OnClickShowItem {
+    fun itemShowSelected(showResult: ShowResult)
 }
