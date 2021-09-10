@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.destination.model.movie.MovieResult
 import kotlinx.android.synthetic.main.fragment_movie_detail.*
 
@@ -39,6 +40,15 @@ class MovieDetailFragment : Fragment() {
 
         val movie: MovieResult = requireArguments().get("movie") as MovieResult
         tvTitleMovieDetail.text = movie.title
+        tvOriginalTitleMovieDetail.text = movie.original_title
+        tvRatingMovieDetail.text = movie.vote_average.toString()
+        tvReleaseDateMovieDetail.text = movie.release_date
+        tvOverviewMovieDetail.text = movie.overview
+
+        Glide.with(this)
+            .load("https://image.tmdb.org/t/p/w1280/" + movie.poster_path)
+            .placeholder(R.drawable.icons8_placeholder)
+            .into(imageViewBigPosterMovie)
 
 
     }

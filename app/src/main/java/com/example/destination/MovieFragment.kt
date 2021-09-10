@@ -76,7 +76,15 @@ class MovieFragment : Fragment() {
               findNavController().navigate(R.id.action_movieFragment_to_movieDetailFragment,args)
             }
         }
-
+        adapterTopRatedMovies.onClickMovieItem = object : OnClickMovieItem{
+            override fun itemMovieSelected(movieResult: MovieResult) {
+                Toast.makeText(context, ""+ movieResult.title, Toast.LENGTH_LONG).show()
+                val args = Bundle().apply {
+                    putParcelable("movie",movieResult)
+                }
+                findNavController().navigate(R.id.action_movieFragment_to_movieDetailFragment,args)
+            }
+        }
     }
 
     fun getPopularityMoviesData() {

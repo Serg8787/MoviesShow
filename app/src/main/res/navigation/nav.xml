@@ -63,6 +63,7 @@
         tools:layout="@layout/fragment_movie_detail" >
         <action
             android:id="@+id/action_movieDetailFragment_to_homeFragment2"
-            app:destination="@id/movieFragment" />
+            app:destination="@id/movieFragment"
+            app:popUpToInclusive="false" />
     </fragment>
 </navigation>
