@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.homeFragment -> findNavController(R.id.fragment).navigate(R.id.movieFragment)
                 R.id.showFragment -> findNavController(R.id.fragment).navigate(R.id.showFragment2)
-                R.id.ActorlFragment -> findNavController(R.id.fragment).navigate(R.id.serialFragment2)
+                R.id.ActorlFragment -> findNavController(R.id.fragment).navigate(R.id.actorFragment)
                 R.id.SettingFragment -> findNavController(R.id.fragment).navigate(R.id.settingFragment)
             }
             true

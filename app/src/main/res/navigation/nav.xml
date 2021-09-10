@@ -42,11 +42,6 @@
             app:argType="com.example.destination.model.movie.MovieResult" />
     </fragment>
     <fragment
-        android:id="@+id/serialFragment2"
-        android:name="com.example.destination.SerialFragment"
-        android:label="fragment_serial"
-        tools:layout="@layout/fragment_actor" />
-    <fragment
         android:id="@+id/showFragment2"
         android:name="com.example.destination.ShowFragment"
         android:label="fragment_show"
@@ -79,4 +74,9 @@
             android:id="@+id/action_showDetailFragment_to_showFragment2"
             app:destination="@id/showFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/actorFragment"
+        android:name="com.example.destination.ActorFragment"
+        android:label="fragment_actor"
+        tools:layout="@layout/fragment_actor" />
 </navigation>

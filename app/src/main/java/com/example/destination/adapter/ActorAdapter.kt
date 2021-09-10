@@ -8,17 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.destination.R
 import com.example.destination.model.actors.ActorResult
-import com.example.destination.models.show.ShowResult
 import kotlinx.android.synthetic.main.actor_item.view.*
-import kotlinx.android.synthetic.main.show_item.view.*
 
 class ActorAdapter : RecyclerView.Adapter<ViewHolderActor>() {
 
-//    var movieList: ArrayList<MovieResult> = arrayListOf<MovieResult>()
-//        set(value) {
-//            field = value
-//            notifyDataSetChanged()
-//        }
 
     private var actors: MutableList<ActorResult> = arrayListOf()
     var onClickActorItem: OnClickActorItem? = null
@@ -54,7 +47,7 @@ class ActorAdapter : RecyclerView.Adapter<ViewHolderActor>() {
             actors.size - 1 ) }
 }
 class ViewHolderActor(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val nameActor = itemView.tvTitlActorItem
+    val nameActor = itemView.tvTitleActorItem
     val posterShow = itemView.ivPosterActor
     val voteAverageShow = itemView.ivVoteAverageActor
 
