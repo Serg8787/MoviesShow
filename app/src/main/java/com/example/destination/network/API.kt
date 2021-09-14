@@ -2,6 +2,8 @@ package com.example.destination.network
 
 import com.example.destination.model.actors.ActorResponse
 import com.example.destination.model.movie.MovieResponse
+import com.example.destination.model.review.ReviewResult
+import com.example.destination.model.review.Reviews
 import com.example.destination.models.show.ShowResponse
 import retrofit2.Call
 import retrofit2.http.*
@@ -27,6 +29,10 @@ interface API {
 
     @GET("person/latest")
     fun getLatestActors(@Query("api_key") apiKey: String,@Query("page") page:Int): Call<ActorResponse>
+
+
+    @GET("/movie/{movie_id}/reviews")
+    fun getReview(@Query("api_key") apiKey: String, @Query("movie_id") id:Int): Call<Reviews>
 
 
 

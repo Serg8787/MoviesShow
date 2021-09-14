@@ -67,7 +67,6 @@ class MovieFragment : Fragment() {
 
         adapterPopularityMovies.onClickMovieItem = object : OnClickMovieItem{
             override fun itemMovieSelected(movieResult: MovieResult) {
-                Toast.makeText(context, ""+ movieResult.title, Toast.LENGTH_LONG).show()
                 val args = Bundle().apply {
                    putParcelable("movie",movieResult)
                 }
@@ -130,8 +129,6 @@ class MovieFragment : Fragment() {
                 }
             })
     }
-
-
     fun setupRecyclerView(){
         adapterPopularityMovies = MovieAdapter()
         rvPopularityMovie.adapter = adapterPopularityMovies
