@@ -5,18 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.destination.R
-import com.example.destination.model.Trailer
+import com.example.destination.model.TrailerResult
 import kotlinx.android.synthetic.main.trailer_item.view.*
 
 class TrailerAdapter : RecyclerView.Adapter<ViewHolderTrailer>() {
 
-    private var reviewList: MutableList<Trailer> = arrayListOf()
+    private var reviewList: MutableList<TrailerResult> = arrayListOf()
 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderTrailer {
         return ViewHolderTrailer(
-            LayoutInflater.from(parent.context).inflate(R.layout.review_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.trailer_item, parent, false)
         )
     }
 

@@ -1,8 +1,9 @@
 package com.example.destination.network
 
+import com.example.destination.model.TrailerList
+import com.example.destination.model.TrailerResult
 import com.example.destination.model.actors.ActorResponse
 import com.example.destination.model.movie.MovieResponse
-import com.example.destination.model.review.ReviewResult
 import com.example.destination.model.review.Reviews
 import com.example.destination.models.show.ShowResponse
 import retrofit2.Call
@@ -33,6 +34,9 @@ interface API {
 
     @GET("/movie/{movie_id}/reviews")
     fun getReview(@Query("api_key") apiKey: String, @Query("movie_id") id:Int): Call<Reviews>
+
+    @GET("movie/{movie_id}/videos")
+    fun getTrailer(@Path("movie_id") id:Int, @Query("api_key") apiKey: String): Call<TrailerList>
 
 
 
