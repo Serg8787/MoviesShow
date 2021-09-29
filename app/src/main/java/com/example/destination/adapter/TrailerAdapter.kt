@@ -5,12 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.destination.R
+import com.example.destination.model.TrailerList
 import com.example.destination.model.TrailerResult
 import kotlinx.android.synthetic.main.trailer_item.view.*
 
-class TrailerAdapter : RecyclerView.Adapter<ViewHolderTrailer>() {
+class TrailerAdapter(val trailerList: List<TrailerResult>) : RecyclerView.Adapter<ViewHolderTrailer>() {
 
-    private var reviewList: MutableList<TrailerResult> = arrayListOf()
+//    private var trailerList: MutableList<TrailerResult> = arrayListOf()
 
 
 
@@ -21,13 +22,11 @@ class TrailerAdapter : RecyclerView.Adapter<ViewHolderTrailer>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolderTrailer, position: Int) {
-        holder.textViewNameOfVideo.text = reviewList[position].name
-
-
+        holder.textViewNameOfVideo.text = trailerList[position].name
     }
 
     override fun getItemCount(): Int {
-        return reviewList.size
+        return trailerList.size
     }
 }
 

@@ -154,7 +154,7 @@
                 app:srcCompat="@drawable/icons8_23" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvReviewAdapter"
+                android:id="@+id/rvTrailerAdapter"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:orientation="vertical"

@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.example.destination.adapter.ReviewAdapter
+import com.example.destination.adapter.TrailerAdapter
 import com.example.destination.model.TrailerList
 import com.example.destination.model.TrailerResult
 import com.example.destination.model.movie.MovieResult
@@ -25,7 +25,7 @@ import retrofit2.Response
  * create an instance of this fragment.
  */
 class MovieDetailFragment : Fragment() {
-    private lateinit var adapterReview: ReviewAdapter
+    private lateinit var adapterTrailer: TrailerAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,11 +58,20 @@ class MovieDetailFragment : Fragment() {
             .placeholder(R.drawable.icons8_placeholder)
             .into(imageViewBigPosterMovie)
 
+        var trailers = arrayListOf<TrailerResult>()
+
+
+
 
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
         retrofit.getTrailer(id,"fa98e12ff4452abc0e83ab5585e62d3c").enqueue(object :retrofit2.Callback<TrailerList>{
             override fun onResponse(call: Call<TrailerList>, response: Response<TrailerList>) {
                 Log.d("MyLog", response.body().toString())
+                 trailers = response.body()?.results as ArrayList<TrailerResult>
+                adapterTrailer = TrailerAdapter(trailers)
+                rvTrailerAdapter.adapter = adapterTrailer
+
+
             }
 
             override fun onFailure(call: Call<TrailerList>, t: Throwable) {
