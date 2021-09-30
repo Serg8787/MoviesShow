@@ -1,16 +1,18 @@
 package com.example.destination.models.show
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
+@Entity(tableName = "shows")
 data class ShowResult(
     val backdrop_path: String,
     val first_air_date: String,
-    val genre_ids: List<Int>,
+    @PrimaryKey
     val id: Int,
-    val name: String,
-    val origin_country: List<String>,
+    val name: String?,
     val original_language: String,
     val original_name: String,
     val overview: String,

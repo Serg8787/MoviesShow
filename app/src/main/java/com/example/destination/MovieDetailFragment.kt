@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.destination.adapter.ReviewAdapter
 import com.example.destination.adapter.TrailerAdapter
+import com.example.destination.database.AppDatabase
 import com.example.destination.model.TrailerList
 import com.example.destination.model.TrailerResult
 import com.example.destination.model.movie.MovieResult
@@ -30,6 +31,7 @@ import retrofit2.Response
 class MovieDetailFragment : Fragment() {
     private lateinit var adapterTrailer: TrailerAdapter
     private lateinit var adapterReview: ReviewAdapter
+    lateinit var movieDatabase: AppDatabase
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +49,8 @@ class MovieDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+       movieDatabase = AppDatabase.getDatabase(context = context)
 
         val movie: MovieResult = requireArguments().get("movie") as MovieResult
         val id:Int = movie.id
@@ -93,6 +97,21 @@ class MovieDetailFragment : Fragment() {
                 TODO("Not yet implemented")
             }
         })
+
+        ivChangeToFavouriteMovie.setOnClickListener {
+            if(ivChangeToFavouriteMovie.isEnabled==true){
+                ivChangeToFavouriteMovie.isEnabled == false
+                ivChangeToFavouriteMovie.setImageResource(R.drawable.icons8_heart_red)
+                movieDatabase.movieDao().insertMovie(movie)
+            } else if (ivChangeToFavouriteMovie.isEnabled==false){
+                ivChangeToFavouriteMovie.isEnabled = true
+                ivChangeToFavouriteMovie.setImageResource(R.drawable.icons8_heart_white)
+                movieDatabase.movieDao().deleteMovie(movie)
+
+            }
+
+
+        }
 
 
 
