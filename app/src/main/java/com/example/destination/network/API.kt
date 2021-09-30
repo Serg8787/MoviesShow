@@ -32,11 +32,21 @@ interface API {
     fun getLatestActors(@Query("api_key") apiKey: String,@Query("page") page:Int): Call<ActorResponse>
 
 
-    @GET("/movie/{movie_id}/reviews")
-    fun getReview(@Query("api_key") apiKey: String, @Query("movie_id") id:Int): Call<Reviews>
+
 
     @GET("movie/{movie_id}/videos")
-    fun getTrailer(@Path("movie_id") id:Int, @Query("api_key") apiKey: String): Call<TrailerList>
+    fun getTrailerMovie(@Path("movie_id") id:Int, @Query("api_key") apiKey: String): Call<TrailerList>
+
+    @GET("tv/{tv_id}/videos")
+    fun getTrailerShow(@Path("tv_id") id:Int, @Query("api_key") apiKey: String): Call<TrailerList>
+
+    @GET("tv/{tv_id}/reviews")
+    fun getReviewsShow(@Path("tv_id") id:Int, @Query("api_key") apiKey: String): Call<Reviews>
+
+    @GET("movie/{movie_id}/reviews")
+    fun getReviewsMovie(@Path("movie_id") id:Int, @Query("api_key") apiKey: String): Call<Reviews>
+
+
 
 
 

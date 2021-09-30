@@ -8,10 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.destination.adapter.ReviewAdapter
 import com.example.destination.adapter.TrailerAdapter
 import com.example.destination.model.TrailerList
 import com.example.destination.model.TrailerResult
 import com.example.destination.model.movie.MovieResult
+import com.example.destination.model.review.ReviewResult
+import com.example.destination.model.review.Reviews
 import com.example.destination.network.API
 import com.example.destination.network.RetrofitClient
 import kotlinx.android.synthetic.main.fragment_movie.*
@@ -26,6 +29,7 @@ import retrofit2.Response
  */
 class MovieDetailFragment : Fragment() {
     private lateinit var adapterTrailer: TrailerAdapter
+    private lateinit var adapterReview: ReviewAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,22 +63,33 @@ class MovieDetailFragment : Fragment() {
             .into(imageViewBigPosterMovie)
 
         var trailers = arrayListOf<TrailerResult>()
+        var reviews = arrayListOf<ReviewResult>()
 
 
 
 
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
-        retrofit.getTrailer(id,"fa98e12ff4452abc0e83ab5585e62d3c").enqueue(object :retrofit2.Callback<TrailerList>{
+        retrofit.getTrailerMovie(id,"fa98e12ff4452abc0e83ab5585e62d3c").enqueue(object :retrofit2.Callback<TrailerList>{
             override fun onResponse(call: Call<TrailerList>, response: Response<TrailerList>) {
                 Log.d("MyLog", response.body().toString())
                  trailers = response.body()?.results as ArrayList<TrailerResult>
                 adapterTrailer = TrailerAdapter(trailers)
-                rvTrailerAdapter.adapter = adapterTrailer
+                rvTrailerMovie.adapter = adapterTrailer
+            }
+            override fun onFailure(call: Call<TrailerList>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+        })
 
-
+        retrofit.getReviewsMovie(id,"fa98e12ff4452abc0e83ab5585e62d3c").enqueue(object :retrofit2.Callback<Reviews>{
+            override fun onResponse(call: Call<Reviews>, response: Response<Reviews>) {
+                Log.d("MyLog", response.body().toString())
+                reviews = response.body()?.results as ArrayList<ReviewResult>
+                adapterReview = ReviewAdapter(reviews)
+                rvReviewsMovie.adapter = adapterReview
             }
 
-            override fun onFailure(call: Call<TrailerList>, t: Throwable) {
+            override fun onFailure(call: Call<Reviews>, t: Throwable) {
                 TODO("Not yet implemented")
             }
         })

@@ -154,13 +154,24 @@
                 app:srcCompat="@drawable/icons8_23" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTrailerAdapter"
+                android:id="@+id/rvTrailerMovie"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:orientation="vertical"
                 android:layout_margin="10dp"
+                android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@+id/textViewLabelDescriptionMovie" />
+                app:layout_constraintTop_toBottomOf="@+id/tvOverviewMovieDetail"
+                tools:layout_editor_absoluteX="10dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvReviewsMovie"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/rvTrailerMovie"
+                tools:layout_editor_absoluteX="10dp" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

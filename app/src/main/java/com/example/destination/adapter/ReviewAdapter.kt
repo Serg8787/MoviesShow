@@ -15,7 +15,7 @@ class ReviewAdapter(val reviewList:ArrayList<ReviewResult> ) : RecyclerView.Adap
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderReview {
         return ViewHolderReview(
-            LayoutInflater.from(parent.context).inflate(R.layout.trailer_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.review_item, parent, false)
         )
     }
 
