@@ -99,22 +99,15 @@ class MovieDetailFragment : Fragment() {
         })
 
         ivChangeToFavouriteMovie.setOnClickListener {
-            if(ivChangeToFavouriteMovie.isEnabled==true){
-                ivChangeToFavouriteMovie.isEnabled == false
+            if(ivChangeToFavouriteMovie.isActivated){
+                ivChangeToFavouriteMovie.isActivated = false
                 ivChangeToFavouriteMovie.setImageResource(R.drawable.icons8_heart_red)
                 movieDatabase.movieDao().insertMovie(movie)
-            } else if (ivChangeToFavouriteMovie.isEnabled==false){
-                ivChangeToFavouriteMovie.isEnabled = true
+            } else if (ivChangeToFavouriteMovie.isActivated==false){
+                ivChangeToFavouriteMovie.isActivated = true
                 ivChangeToFavouriteMovie.setImageResource(R.drawable.icons8_heart_white)
                 movieDatabase.movieDao().deleteMovie(movie)
-
             }
-
-
         }
-
-
-
     }
-
 }

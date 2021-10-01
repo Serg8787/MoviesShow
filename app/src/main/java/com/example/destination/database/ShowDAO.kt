@@ -10,13 +10,13 @@ interface ShowDAO {
     fun getAll(): List<ShowResult>
 
     @Insert
-    fun insertNote(showResult: ShowResult)
+    fun insertShow(showResult: ShowResult)
 
     @Delete
-    fun deleteNote(showResult: ShowResult)
+    fun deleteShow(showResult: ShowResult)
 
     @Update
-    fun updateNote(showResult: ShowResult)
+    fun updateShow(showResult: ShowResult)
 
     @Query("SELECT * FROM shows WHERE id = :id")
     fun getShowById(id: Int): ShowResult?

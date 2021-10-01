@@ -153,7 +153,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/imageViewBigPosterShow"
                 app:layout_constraintEnd_toEndOf="@+id/imageViewBigPosterShow"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBigPosterShow"
-                app:srcCompat="@drawable/icons8_23" />
+                app:srcCompat="@drawable/icons8_heart_white" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTrailerShow"

@@ -6,13 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.destination.adapter.ReviewAdapter
 import com.example.destination.adapter.TrailerAdapter
+import com.example.destination.database.AppDatabase
 import com.example.destination.model.TrailerList
 import com.example.destination.model.TrailerResult
-import com.example.destination.model.movie.MovieResult
 import com.example.destination.model.review.ReviewResult
 import com.example.destination.model.review.Reviews
 import com.example.destination.models.show.ShowResult
@@ -34,6 +33,7 @@ import retrofit2.Response
 class ShowDetailFragment : Fragment() {
     private lateinit var adapterTrailer: TrailerAdapter
     private lateinit var adapterReview: ReviewAdapter
+    lateinit var movieDatabase: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +50,8 @@ class ShowDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        movieDatabase = AppDatabase.getDatabase(context = context)
 
         val show: ShowResult = requireArguments().get("show") as ShowResult
         val id = show.id
@@ -93,6 +95,17 @@ class ShowDetailFragment : Fragment() {
                 TODO("Not yet implemented")
             }
         })
+        imageViewAddToFavouriteShow.setOnClickListener {
+            if(imageViewAddToFavouriteShow.isActivated){
+                imageViewAddToFavouriteShow.isActivated = false
+                imageViewAddToFavouriteShow.setImageResource(R.drawable.icons8_heart_red)
+                movieDatabase.showDao().insertShow(show)
+            } else if (imageViewAddToFavouriteShow.isActivated==false){
+                imageViewAddToFavouriteShow.isActivated = true
+                imageViewAddToFavouriteShow.setImageResource(R.drawable.icons8_heart_white)
+                movieDatabase.showDao().deleteShow(show)
+            }
+        }
 
     }
 }
