@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +17,7 @@ import com.example.destination.models.show.ShowResult
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_favorites.*
+import kotlinx.android.synthetic.main.fragment_movie.*
 
 
 /**
@@ -50,6 +52,23 @@ class ActorFragment : Fragment() {
 
         setupRecyclerView()
         getMovies()
+
+
+
+
+        swFavorites.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(isChecked){
+                getShows()
+                Toast.makeText(context,"show",Toast.LENGTH_LONG).show()
+                rvFavoritesMovies.visibility = View.INVISIBLE
+                rvFavoritesShows.visibility = View.VISIBLE
+            } else {
+                getMovies()
+                Toast.makeText(context,"movie",Toast.LENGTH_LONG).show()
+                rvFavoritesMovies.visibility = View.VISIBLE
+                rvFavoritesShows.visibility = View.INVISIBLE
+            }
+        }
 
 
     }
