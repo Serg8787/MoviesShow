@@ -69,6 +69,8 @@ class ShowDetailFragment : Fragment() {
 
         var trailers = arrayListOf<TrailerResult>()
         var reviews = arrayListOf<ReviewResult>()
+//
+
 
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
         retrofit.getTrailerShow(id,"fa98e12ff4452abc0e83ab5585e62d3c").enqueue(object : retrofit2.Callback<TrailerList>{
@@ -95,17 +97,22 @@ class ShowDetailFragment : Fragment() {
                 TODO("Not yet implemented")
             }
         })
-        imageViewAddToFavouriteShow.setOnClickListener {
-            if(imageViewAddToFavouriteShow.isActivated){
-                imageViewAddToFavouriteShow.isActivated = false
-                imageViewAddToFavouriteShow.setImageResource(R.drawable.icons8_heart_red)
-                movieDatabase.showDao().insertShow(show)
-            } else if (imageViewAddToFavouriteShow.isActivated==false){
-                imageViewAddToFavouriteShow.isActivated = true
-                imageViewAddToFavouriteShow.setImageResource(R.drawable.icons8_heart_white)
-                movieDatabase.showDao().deleteShow(show)
-            }
-        }
+//        if(favoriteMovie == null){
+//            imageViewAddToFavouriteShow.setImageResource(R.drawable.icons8_heart_rose)
+//        } else {
+//            imageViewAddToFavouriteShow.setImageResource(R.drawable.icons8_heart_red)
+//        }
+
+//        imageViewAddToFavouriteShow.setOnClickListener {
+//
+//            if(favoriteMovie == null){
+//                imageViewAddToFavouriteM.setImageResource(R.drawable.icons8_heart_rose)
+//                movieDatabase.showDao().insertShow(show)
+//            } else {
+//                imageViewAddToFavouriteShow.setImageResource(R.drawable.icons8_heart_red)
+//                movieDatabase.showDao().deleteShow(show)
+//            }
+//        }
 
     }
 }

@@ -54,7 +54,6 @@ class MovieDetailFragment : Fragment() {
 
         val movie: MovieResult = requireArguments().get("movie") as MovieResult
         val id:Int = movie.id
-        Toast.makeText(context,""+id,Toast.LENGTH_LONG).show()
         tvTitleMovieDetail.text = movie.title
         tvOriginalTitleMovieDetail.text = movie.original_title
         tvRatingMovieDetail.text = movie.vote_average.toString()
@@ -68,6 +67,7 @@ class MovieDetailFragment : Fragment() {
 
         var trailers = arrayListOf<TrailerResult>()
         var reviews = arrayListOf<ReviewResult>()
+        var favoriteMovie = movieDatabase.movieDao().getMoviesById(id)
 
 
 
@@ -97,16 +97,23 @@ class MovieDetailFragment : Fragment() {
                 TODO("Not yet implemented")
             }
         })
+        if(favoriteMovie==null){
+            ivChangeToFavouriteMovie.setImageResource(R.drawable.icons8_heart_rose)
+        } else {
+            ivChangeToFavouriteMovie.setImageResource(R.drawable.icons8_heart_red)
+        }
 
-        ivChangeToFavouriteMovie.setOnClickListener {
-            if(ivChangeToFavouriteMovie.isActivated){
-                ivChangeToFavouriteMovie.isActivated = false
+        ivChangeToFavouriteMovie.setOnClickListener{
+            favoriteMovie = movieDatabase.movieDao().getMoviesById(id)
+            if(favoriteMovie==null){
                 ivChangeToFavouriteMovie.setImageResource(R.drawable.icons8_heart_red)
-                movieDatabase.movieDao().insertMovie(movie)
-            } else if (ivChangeToFavouriteMovie.isActivated==false){
-                ivChangeToFavouriteMovie.isActivated = true
-                ivChangeToFavouriteMovie.setImageResource(R.drawable.icons8_heart_white)
-                movieDatabase.movieDao().deleteMovie(movie)
+                    movieDatabase.movieDao().insertMovie(movie)
+                Toast.makeText(context,"Добавлено в избранное",Toast.LENGTH_SHORT).show()
+            } else {
+                ivChangeToFavouriteMovie.setImageResource(R.drawable.icons8_heart_rose)
+                    movieDatabase.movieDao().deleteMovie(movie)
+                Toast.makeText(context,"Удалено из избранного",Toast.LENGTH_SHORT).show()
+
             }
         }
     }

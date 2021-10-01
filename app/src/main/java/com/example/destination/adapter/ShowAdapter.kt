@@ -27,7 +27,6 @@ class ShowAdapter : RecyclerView.Adapter<ViewHolderShow>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolderShow, position: Int) {
-
         holder.nameShow.text = showsList[position].name
         Glide.with(holder.itemView.context)
             .load("https://image.tmdb.org/t/p/w1280/" + showsList[position].backdrop_path)
