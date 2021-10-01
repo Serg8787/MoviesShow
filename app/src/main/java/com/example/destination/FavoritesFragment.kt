@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.destination.adapter.MovieAdapter
 import com.example.destination.adapter.ShowAdapter
 import com.example.destination.model.movie.MovieResult
+import com.example.destination.models.show.ShowResult
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_favorites.*
@@ -59,12 +60,13 @@ class ActorFragment : Fragment() {
 
         adapterFavoritesShows= ShowAdapter()
         rvFavoritesShows.adapter = adapterFavoritesShows
-
     }
 
     fun getMovies(){
         adapterFavoritesMovies.movies = viewModel.moviesFavorites as ArrayList<MovieResult>
+    }
 
-
+    fun getShows(){
+        adapterFavoritesShows.showsList = viewModel.showsFavorites as ArrayList<ShowResult>
     }
 }

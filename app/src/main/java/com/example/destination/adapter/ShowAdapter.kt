@@ -12,13 +12,11 @@ import kotlinx.android.synthetic.main.show_item.view.*
 
 class ShowAdapter : RecyclerView.Adapter<ViewHolderShow>() {
 
-//    var movieList: ArrayList<MovieResult> = arrayListOf<MovieResult>()
-//        set(value) {
-//            field = value
-//            notifyDataSetChanged()
-//        }
-
-    private var shows: MutableList<ShowResult> = arrayListOf()
+    var showsList: ArrayList<ShowResult> = arrayListOf<ShowResult>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
     var onClickShowItem: OnClickShowItem? = null
 
 
@@ -30,29 +28,30 @@ class ShowAdapter : RecyclerView.Adapter<ViewHolderShow>() {
 
     override fun onBindViewHolder(holder: ViewHolderShow, position: Int) {
 
-        holder.nameShow.text = shows[position].name
+        holder.nameShow.text = showsList[position].name
         Glide.with(holder.itemView.context)
-            .load("https://image.tmdb.org/t/p/w1280/" + shows[position].backdrop_path)
+            .load("https://image.tmdb.org/t/p/w1280/" + showsList[position].backdrop_path)
             .placeholder(R.drawable.icons8_placeholder)
             .into(holder.posterShow)
-        holder.voteAverageShow.text = shows[position].vote_average.toString()
+        holder.voteAverageShow.text = showsList[position].vote_average.toString()
         holder.itemView.setOnClickListener {
-            onClickShowItem?.itemShowSelected(shows[position])
+
+            onClickShowItem?.itemShowSelected(showsList[position])
         }
 
 
     }
 
     override fun getItemCount(): Int {
-        return shows.size
+        return showsList.size
     }
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateList(itemsShows: ArrayList<ShowResult>) {
-        shows.addAll(itemsShows)
+        showsList.addAll(itemsShows)
         notifyItemRangeInserted(
-            this.shows.size,
-            shows.size - 1 ) }
+            this.showsList.size,
+            showsList.size - 1 ) }
 }
 class ViewHolderShow(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val nameShow = itemView.tvTitleShowItem

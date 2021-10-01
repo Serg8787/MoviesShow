@@ -13,10 +13,12 @@ class FavoritesViewModel(application: Application) : AndroidViewModel(applicatio
 //    lateinit var movieDatabase: AppDatabase
 
 
-    var showsFavorites = listOf<ShowResult>()
+
     var movieDatabase = AppDatabase.getDatabase(context = application)
 
     var moviesFavorites = movieDatabase.movieDao().getAll()
+    var showsFavorites = movieDatabase.showDao().getAll()
+
 
 //    fun loadFavoritesMovies(){
 //       moviesFavorites = movieDatabase.movieDao().getAll()
