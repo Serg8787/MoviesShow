@@ -14,8 +14,8 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/ActorlFragment"
-        android:title="Actor"
-        android:icon="@drawable/icons8_face"
+        android:title="Favorites"
+        android:icon="@drawable/icons8_heart_white"
         app:showAsAction="ifRoom"/>
 
     <item

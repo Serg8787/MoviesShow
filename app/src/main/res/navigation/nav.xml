@@ -78,7 +78,7 @@
         android:id="@+id/actorFragment"
         android:name="com.example.destination.ActorFragment"
         android:label="fragment_actor"
-        tools:layout="@layout/fragment_actor" >
+        tools:layout="@layout/fragment_favorites" >
         <action
             android:id="@+id/action_actorFragment_to_actorDeteilFragment"
             app:destination="@id/actorDeteilFragment" />

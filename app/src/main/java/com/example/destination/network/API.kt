@@ -1,8 +1,6 @@
 package com.example.destination.network
 
 import com.example.destination.model.TrailerList
-import com.example.destination.model.TrailerResult
-import com.example.destination.model.actors.ActorResponse
 import com.example.destination.model.movie.MovieResponse
 import com.example.destination.model.review.Reviews
 import com.example.destination.models.show.ShowResponse
@@ -24,15 +22,6 @@ interface API {
 
     @GET("tv/popular")
     fun getPopularityTvShows(@Query("api_key") apiKey: String,@Query("page") page:Int): Call<ShowResponse>
-
-    @GET("person/popular")
-    fun getPopularityActors(@Query("api_key") apiKey: String,@Query("page") page:Int): Call<ActorResponse>
-
-    @GET("person/latest")
-    fun getLatestActors(@Query("api_key") apiKey: String,@Query("page") page:Int): Call<ActorResponse>
-
-
-
 
     @GET("movie/{movie_id}/videos")
     fun getTrailerMovie(@Path("movie_id") id:Int, @Query("api_key") apiKey: String): Call<TrailerList>

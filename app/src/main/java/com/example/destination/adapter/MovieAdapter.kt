@@ -12,13 +12,13 @@ import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MovieAdapter : RecyclerView.Adapter<ViewHolderMovie>() {
 
-//    var movieList: ArrayList<MovieResult> = arrayListOf<MovieResult>()
-//        set(value) {
-//            field = value
-//            notifyDataSetChanged()
-//        }
+    var movies: ArrayList<MovieResult> = arrayListOf<MovieResult>()
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
 
-    private var movies: MutableList<MovieResult> = arrayListOf()
+//    private var movies: MutableList<MovieResult> = arrayListOf()
     var onClickMovieItem: OnClickMovieItem? = null
 
 
@@ -44,7 +44,7 @@ class MovieAdapter : RecyclerView.Adapter<ViewHolderMovie>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateList(itemsMovies: ArrayList<MovieResult>) {
+    fun updateList(itemsMovies: List<MovieResult>) {
         movies.addAll(itemsMovies)
         notifyItemRangeInserted(
             this.movies.size,
