@@ -34,10 +34,6 @@ class MovieDetailFragment : Fragment() {
     lateinit var movieDatabase: AppDatabase
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -67,7 +63,7 @@ class MovieDetailFragment : Fragment() {
 
         var trailers = arrayListOf<TrailerResult>()
         var reviews = arrayListOf<ReviewResult>()
-        var favoriteMovie = movieDatabase.movieDao().getMoviesById(id)
+
 
 
 
@@ -97,6 +93,7 @@ class MovieDetailFragment : Fragment() {
                 TODO("Not yet implemented")
             }
         })
+        var favoriteMovie = movieDatabase.movieDao().getMoviesById(id)
         if(favoriteMovie==null){
             ivChangeToFavouriteMovie.setImageResource(R.drawable.icons8_heart_rose)
         } else {

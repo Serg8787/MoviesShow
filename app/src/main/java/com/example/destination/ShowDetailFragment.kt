@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.destination.adapter.ReviewAdapter
 import com.example.destination.adapter.TrailerAdapter
@@ -97,22 +98,26 @@ class ShowDetailFragment : Fragment() {
                 TODO("Not yet implemented")
             }
         })
-//        if(favoriteMovie == null){
-//            imageViewAddToFavouriteShow.setImageResource(R.drawable.icons8_heart_rose)
-//        } else {
-//            imageViewAddToFavouriteShow.setImageResource(R.drawable.icons8_heart_red)
-//        }
+        var favoriteShow = movieDatabase.showDao().getShowById(id)
+        if(favoriteShow==null){
+            ivChangeToFavouriteShow.setImageResource(R.drawable.icons8_heart_rose)
+        } else {
+            ivChangeToFavouriteShow.setImageResource(R.drawable.icons8_heart_red)
+        }
 
-//        imageViewAddToFavouriteShow.setOnClickListener {
-//
-//            if(favoriteMovie == null){
-//                imageViewAddToFavouriteM.setImageResource(R.drawable.icons8_heart_rose)
-//                movieDatabase.showDao().insertShow(show)
-//            } else {
-//                imageViewAddToFavouriteShow.setImageResource(R.drawable.icons8_heart_red)
-//                movieDatabase.showDao().deleteShow(show)
-//            }
-//        }
+        ivChangeToFavouriteShow.setOnClickListener{
+            favoriteShow = movieDatabase.showDao().getShowById(id)
+            if(favoriteShow==null){
+                ivChangeToFavouriteShow.setImageResource(R.drawable.icons8_heart_red)
+                movieDatabase.showDao().insertShow(show)
+                Toast.makeText(context,"Добавлено в избранное", Toast.LENGTH_SHORT).show()
+            } else {
+                ivChangeToFavouriteShow.setImageResource(R.drawable.icons8_heart_rose)
+                movieDatabase.showDao().deleteShow(show)
+                Toast.makeText(context,"Удалено из избранного", Toast.LENGTH_SHORT).show()
+
+            }
+        }
 
     }
 }

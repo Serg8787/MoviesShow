@@ -145,7 +145,7 @@
 
 
             <ImageView
-                android:id="@+id/imageViewAddToFavouriteShow"
+                android:id="@+id/ivChangeToFavouriteShow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -162,13 +162,15 @@
                 android:layout_margin="10dp"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@+id/tvOverviewShowDetail" />
+                app:layout_constraintTop_toBottomOf="@+id/imageViewBigPosterShow"
+                tools:layout_editor_absoluteX="10dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvReviewsShow"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="10dp"
+                android:visibility="gone"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@+id/rvTrailerShow"
