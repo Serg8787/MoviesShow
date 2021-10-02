@@ -32,6 +32,8 @@ class MovieFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
     }
 
     override fun onCreateView(
@@ -40,9 +42,14 @@ class MovieFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_movie, container, false)
+        inflater.context.setTheme(R.style.TextAppearance_AppCompat_Display1)
+
+
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         (activity as AppCompatActivity?)!!.bottomNavView.visibility = View.VISIBLE
         viewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
         setupRecyclerView()

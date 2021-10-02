@@ -1,34 +1,45 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory app:title="@string/messages_header">
-
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
+    <PreferenceCategory app:title="@string/theme">
 
         <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
+            android:dialogTitle="Select duration"
+            android:entries="@array/thems"
+            android:entryValues="@array/thems"
+            android:key="themes"
+            android:summary="Нажмите для выбора темы"
+            android:defaultValue="Лайт"
+            android:title="Выбор темы" />
+
+    </PreferenceCategory>
+    <PreferenceCategory app:title="Об Авторе">
+
+        <Preference
+            android:summary="Все проекты автора"
+            android:title="">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/Serg8787?tab=repositories"
+                />
+        </Preference>
+        <Preference
+            android:summary="Написать автору в Telegram"
+            android:title="">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://t.me/SergTsubulnik"
+                />
+        </Preference>
+        <Preference
+            android:summary="Страница об Авторе"
+            app:key="author"
+            >
+
+
+        </Preference>
+
 
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/sync_header">
 
-        <SwitchPreferenceCompat
-            app:key="sync" />
-
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
-
-    </PreferenceCategory>
 
 </PreferenceScreen>

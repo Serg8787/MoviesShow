@@ -84,5 +84,17 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.destination.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_pop"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_settingsFragment_to_aboutAuthorFragment"
+            app:destination="@id/aboutAuthorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutAuthorFragment"
+        android:name="com.example.destination.AboutAuthorFragment"
+        android:label="AboutAuthorFragment" />
 </navigation>
