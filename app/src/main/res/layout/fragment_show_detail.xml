@@ -151,13 +151,14 @@
                 app:layout_constraintBottom_toBottomOf="@+id/imageViewBigPosterShow"
                 app:layout_constraintEnd_toEndOf="@+id/imageViewBigPosterShow"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBigPosterShow"
-                app:srcCompat="@drawable/icons8_heart_white" />
+                app:srcCompat="@drawable/icons8_heart_not_favorite" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTrailerShow"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="10dp"
+                android:nestedScrollingEnabled="false"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@+id/tvOverviewShowDetail"
@@ -170,6 +171,7 @@
                 android:layout_margin="10dp"
                 android:visibility="gone"
                 android:orientation="vertical"
+                android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@+id/rvTrailerShow"
                 tools:layout_editor_absoluteX="10dp" />
