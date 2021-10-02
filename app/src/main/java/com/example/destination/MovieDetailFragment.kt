@@ -1,5 +1,7 @@
 package com.example.destination
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,7 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.destination.adapter.OnClickMovieItem
+import com.example.destination.adapter.OnClickTrailerItem
 import com.example.destination.adapter.ReviewAdapter
 import com.example.destination.adapter.TrailerAdapter
 import com.example.destination.database.AppDatabase
@@ -64,10 +69,6 @@ class MovieDetailFragment : Fragment() {
         var trailers = arrayListOf<TrailerResult>()
         var reviews = arrayListOf<ReviewResult>()
 
-
-
-
-
         val retrofit = RetrofitClient.getClient("https://api.themoviedb.org/3/").create(API::class.java)
         retrofit.getTrailerMovie(id,"fa98e12ff4452abc0e83ab5585e62d3c").enqueue(object :retrofit2.Callback<TrailerList>{
             override fun onResponse(call: Call<TrailerList>, response: Response<TrailerList>) {
@@ -75,6 +76,13 @@ class MovieDetailFragment : Fragment() {
                  trailers = response.body()?.results as ArrayList<TrailerResult>
                 adapterTrailer = TrailerAdapter(trailers)
                 rvTrailerMovie.adapter = adapterTrailer
+                adapterTrailer.onClickTrailerItem = object : OnClickTrailerItem{
+                    override fun itemTrailerSelected(trailerResult: TrailerResult) {
+                        Toast.makeText(context,""+trailerResult.key,Toast.LENGTH_SHORT).show()
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v="+trailerResult.key))
+                        startActivity(intent)
+                    }
+                }
             }
             override fun onFailure(call: Call<TrailerList>, t: Throwable) {
                 TODO("Not yet implemented")
@@ -113,5 +121,7 @@ class MovieDetailFragment : Fragment() {
 
             }
         }
+
+
     }
 }
