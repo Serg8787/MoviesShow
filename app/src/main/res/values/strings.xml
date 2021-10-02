@@ -10,4 +10,18 @@
     <string name="tmdbFour">Наше сообщество не имеет себе равных. Наши сотрудники и модераторы сообщества всегда готовы помочь. Мы стремимся к тому, чтобы ваш опыт работы с TMDB был просто потрясающим.</string>
     <string name="tmdbFive">Надежная платформа. Ежедневно нашим сервисом пользуются миллионы людей, а мы обрабатываем более 3 миллиардов запросов. На протяжении многих лет мы доказали, что это услуга, которой можно доверять и на которую можно положиться.</string>
     <string name="launch_trailer">trailer</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>

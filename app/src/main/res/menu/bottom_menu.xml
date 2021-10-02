@@ -13,13 +13,13 @@
         android:icon="@drawable/icons8_show"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/FavoritesFragment"
+        android:id="@+id/favoritesFragment"
         android:title="Favorites"
         android:icon="@drawable/icons8_heart_white"
         app:showAsAction="ifRoom"/>
 
     <item
-        android:id="@+id/SettingFragment"
+        android:id="@+id/settingFragment"
         android:title="Setting"
         android:icon="@drawable/icons8_setting"
         app:showAsAction="ifRoom"/>

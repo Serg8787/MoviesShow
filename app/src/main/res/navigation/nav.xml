@@ -51,11 +51,6 @@
             app:destination="@id/showDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/settingFragment"
-        android:name="com.example.destination.SettingFragment"
-        android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
-    <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.example.destination.MovieDetailFragment"
         android:label="fragment_movie_detail"
@@ -75,7 +70,7 @@
             app:destination="@id/showFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/FavoritesFragment"
+        android:id="@+id/favoritesFragment"
         android:name="com.example.destination.ActorFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" >
@@ -86,4 +81,8 @@
             android:id="@+id/action_FavoritesFragment_to_showDetailFragment"
             app:destination="@id/showDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.destination.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>
