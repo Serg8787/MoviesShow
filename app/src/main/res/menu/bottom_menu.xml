@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/movieFragment"
         android:title="Movie"
         android:icon="@drawable/icons8_movie"
         app:showAsAction="ifRoom"/>
@@ -13,7 +13,7 @@
         android:icon="@drawable/icons8_show"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/ActorlFragment"
+        android:id="@+id/FavoritesFragment"
         android:title="Favorites"
         android:icon="@drawable/icons8_heart_white"
         app:showAsAction="ifRoom"/>

@@ -74,7 +74,6 @@ class MovieFragment : Fragment() {
         }
         adapterTopRatedMovies.onClickMovieItem = object : OnClickMovieItem{
             override fun itemMovieSelected(movieResult: MovieResult) {
-                Toast.makeText(context, ""+ movieResult.id, Toast.LENGTH_LONG).show()
                 val args = Bundle().apply {
                     putParcelable("movie",movieResult)
                 }

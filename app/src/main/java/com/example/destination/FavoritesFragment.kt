@@ -1,16 +1,17 @@
 package com.example.destination
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.destination.adapter.MovieAdapter
+import com.example.destination.adapter.OnClickMovieItem
+import com.example.destination.adapter.OnClickShowItem
 import com.example.destination.adapter.ShowAdapter
 import com.example.destination.model.movie.MovieResult
 import com.example.destination.models.show.ShowResult
@@ -53,9 +54,6 @@ class ActorFragment : Fragment() {
         setupRecyclerView()
         getMovies()
 
-
-
-
         swFavorites.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
                 getShows()
@@ -68,6 +66,24 @@ class ActorFragment : Fragment() {
                 rvFavoritesMovies.visibility = View.VISIBLE
                 rvFavoritesShows.visibility = View.INVISIBLE
             }
+        }
+
+        adapterFavoritesMovies.onClickMovieItem = object : OnClickMovieItem {
+            override fun itemMovieSelected(movieResult: MovieResult) {
+                val args = Bundle().apply {
+                    putParcelable("movie",movieResult)
+                }
+                findNavController().navigate(R.id.action_FavoritesFragment_to_movieDetailFragment,args)
+            }
+        }
+        adapterFavoritesShows.onClickShowItem = object : OnClickShowItem {
+            override fun itemShowSelected(showResult: ShowResult) {
+                val args = Bundle().apply {
+                    putParcelable("show",showResult)
+                }
+                findNavController().navigate(R.id.action_FavoritesFragment_to_showDetailFragment,args)
+            }
+
         }
 
 

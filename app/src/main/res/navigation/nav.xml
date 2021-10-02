@@ -75,21 +75,15 @@
             app:destination="@id/showFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/actorFragment"
+        android:id="@+id/FavoritesFragment"
         android:name="com.example.destination.ActorFragment"
-        android:label="fragment_actor"
+        android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" >
         <action
-            android:id="@+id/action_actorFragment_to_actorDeteilFragment"
-            app:destination="@id/actorDeteilFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/actorDeteilFragment"
-        android:name="com.example.destination.ActorDeteilFragment"
-        android:label="fragment_actor_deteil"
-        tools:layout="@layout/fragment_actor_deteil" >
+            android:id="@+id/action_FavoritesFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
         <action
-            android:id="@+id/action_actorDeteilFragment_to_actorFragment"
-            app:destination="@id/actorFragment" />
+            android:id="@+id/action_FavoritesFragment_to_showDetailFragment"
+            app:destination="@id/showDetailFragment" />
     </fragment>
 </navigation>
