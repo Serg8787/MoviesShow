@@ -1,14 +1,17 @@
 package com.example.destination.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.destination.R
 import com.example.destination.model.movie.MovieResult
 import kotlinx.android.synthetic.main.movie_item.view.*
+import java.security.AccessController.getContext
 
 class MovieAdapter : RecyclerView.Adapter<ViewHolderMovie>() {
 
@@ -17,8 +20,11 @@ class MovieAdapter : RecyclerView.Adapter<ViewHolderMovie>() {
             field = value
             notifyDataSetChanged()
         }
+    val lastPosition=6
 
-//    private var movies: MutableList<MovieResult> = arrayListOf()
+
+
+
     var onClickMovieItem: OnClickMovieItem? = null
 
 
@@ -29,7 +35,14 @@ class MovieAdapter : RecyclerView.Adapter<ViewHolderMovie>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolderMovie, position: Int) {
-
+        if(holder.adapterPosition>lastPosition) {
+            holder.root.startAnimation(
+                AnimationUtils.loadAnimation(
+                    holder.root.context,
+                    R.anim.recycler_view_animate
+                )
+            )
+        }
         holder.tittleMovie.text = movies[position].title
         Glide.with(holder.itemView.context)
             .load("https://image.tmdb.org/t/p/w1280/" + movies[position].backdrop_path)

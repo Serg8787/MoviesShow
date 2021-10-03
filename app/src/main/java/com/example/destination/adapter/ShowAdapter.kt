@@ -4,10 +4,13 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.destination.R
 import com.example.destination.models.show.ShowResult
+import kotlinx.android.synthetic.main.fragment_show.view.*
+import kotlinx.android.synthetic.main.movie_item.view.*
 import kotlinx.android.synthetic.main.show_item.view.*
 
 class ShowAdapter : RecyclerView.Adapter<ViewHolderShow>() {
@@ -18,6 +21,7 @@ class ShowAdapter : RecyclerView.Adapter<ViewHolderShow>() {
             notifyDataSetChanged()
         }
     var onClickShowItem: OnClickShowItem? = null
+    val lastPosition=6
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderShow {
@@ -27,6 +31,14 @@ class ShowAdapter : RecyclerView.Adapter<ViewHolderShow>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolderShow, position: Int) {
+        if(holder.adapterPosition>lastPosition) {
+            holder.root.startAnimation(
+                AnimationUtils.loadAnimation(
+                    holder.root.context,
+                    R.anim.recycler_view_animate
+                )
+            )
+        }
         holder.nameShow.text = showsList[position].name
         Glide.with(holder.itemView.context)
             .load("https://image.tmdb.org/t/p/w1280/" + showsList[position].backdrop_path)
@@ -56,6 +68,7 @@ class ViewHolderShow(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val nameShow = itemView.tvTitleShowItem
     val posterShow = itemView.ivPosterShow
     val voteAverageShow = itemView.ivVoteAverageShow
+    val root = itemView.clRootShow
 
 }
 interface OnClickShowItem {
