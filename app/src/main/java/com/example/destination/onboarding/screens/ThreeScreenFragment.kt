@@ -32,17 +32,17 @@ class ThreeScreenFragment : Fragment() {
 
         view.btNextThree.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment2)
-            onBoardingFinished()
+//            onBoardingFinished()
         }
 
         return view
     }
 
-    private fun onBoardingFinished(){
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putBoolean("Finished", true)
-        editor.apply()
-    }
+//    private fun onBoardingFinished(){
+//        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+//        val editor = sharedPref.edit()
+//        editor.putBoolean("Finished", true)
+//        editor.apply()
+//    }
 
 }

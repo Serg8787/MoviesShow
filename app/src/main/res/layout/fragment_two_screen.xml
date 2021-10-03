@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_gray"
     tools:context=".onboarding.screens.TwoScreenFragment">
 
     <TextView
@@ -13,6 +12,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Преимущество TMDB"
+        android:textStyle="bold"
+        android:textColor="@color/teal_200"
         android:textSize="25sp"
         android:padding="4dp"
         android:layout_margin="40dp"
@@ -25,7 +26,9 @@
         android:id="@+id/tvFirstTMDB"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="@string/tmdbFirst"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"
+        android:textColor="@android:color/holo_orange_light"
         android:layout_margin="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

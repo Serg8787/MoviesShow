@@ -34,7 +34,7 @@
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
-        android:id="@+id/tvShowsFavorites"
+        android:id="@+id/tvFavoritesShow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="left"

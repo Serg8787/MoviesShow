@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_gray"
     tools:context=".onboarding.screens.ThreeScreenFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,7 +13,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Статистика"
-        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_200"
+        android:textSize="35sp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,27 +25,29 @@
         android:id="@+id/tvMoments"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="40dp"
         android:gravity="center"
-        android:text="Мы все ее любим. Вот несколько интересных моментов."
-        android:textSize="25sp"
+        android:text="В базе данных TMDB ..."
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvStatistica"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/tvCountMusic"
+        android:id="@+id/tvCountMovies"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:drawableLeft="@drawable/icons8_1"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="sans-serif-condensed"
         android:gravity="center"
-        android:text=" 681 068 \n Фильмов"
-        android:textSize="30sp"
-        android:layout_margin="15dp"
+        android:text=" 681 068 фильмов"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="27sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvMoments" />
 
@@ -53,60 +56,63 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:drawableLeft="@drawable/icons8_23"
         android:gravity="center"
-        android:text="2 751 866\nТелесериалы"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvCountMusic"
-        app:layout_constraintStart_toStartOf="@+id/tvCountMusic"
-        app:layout_constraintTop_toBottomOf="@+id/tvCountMusic" />
+        android:text="2 751 866 телесериалов"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="27sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvCountMovies"
+        app:layout_constraintStart_toStartOf="@+id/tvCountMovies"
+        app:layout_constraintTop_toBottomOf="@+id/tvCountMovies" />
 
     <TextView
         android:id="@+id/tvCountShow"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:drawableLeft="@drawable/icons8_3"
         android:gravity="center"
-        android:text="115 877 \nТВ шоу"
-        android:textSize="20sp"
+        android:text="115 877 ТВ шоу"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="27sp"
         app:layout_constraintEnd_toEndOf="@+id/tvCountSerial"
         app:layout_constraintStart_toStartOf="@+id/tvCountSerial"
         app:layout_constraintTop_toBottomOf="@+id/tvCountSerial" />
 
     <TextView
+        android:id="@+id/tCountImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="2 854 259 изображений"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="27sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvCountShow"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvCountShow"
+        app:layout_constraintTop_toBottomOf="@+id/tvCountShow" />
+
+    <TextView
         android:id="@+id/tvCountReafct"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/icons8_5"
+        android:layout_marginTop="25dp"
         android:gravity="center"
-        android:text="419 254 \n Изменения за неделю"
-        android:textSize="20sp"
+        android:text="419 254 изменений за неделю"
+        android:textSize="27sp"
+        android:textColor="@android:color/holo_orange_light"
         app:layout_constraintEnd_toEndOf="@+id/tCountImage"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvCountShow"
         app:layout_constraintTop_toBottomOf="@+id/tCountImage" />
 
-    <TextView
-        android:id="@+id/tCountImage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:drawableLeft="@drawable/icons8_4"
-        android:gravity="center"
-        android:text="2 854 259 \n Изображений"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvCountShow"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvCountShow"
-        app:layout_constraintTop_toBottomOf="@+id/tvCountShow" />
+
 
     <Button
         android:id="@+id/btNextThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Finish"
+        android:textColor="@color/teal_200"
         android:layout_margin="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

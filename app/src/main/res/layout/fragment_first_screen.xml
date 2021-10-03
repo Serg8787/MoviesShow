@@ -13,6 +13,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Давайте поговорим"
+        android:textStyle="bold"
+        android:textColor="@color/teal_200"
         android:layout_margin="50dp"
         android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,6 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Next"
+        android:textColor="@android:color/holo_orange_light"
         android:layout_margin="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

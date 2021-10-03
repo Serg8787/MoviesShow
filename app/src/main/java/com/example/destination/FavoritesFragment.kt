@@ -59,17 +59,15 @@ class ActorFragment : Fragment() {
         swFavorites.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
                 getShows()
-                Toast.makeText(context,"show",Toast.LENGTH_LONG).show()
                 rvFavoritesMovies.visibility = View.INVISIBLE
                 rvFavoritesShows.visibility = View.VISIBLE
                 tvMoviesFavorites.setTextColor(resources.getColor(android.R.color.holo_orange_light))
-                tvShowsFavorites.setTextColor(resources.getColor(R.color.teal_200))
+                tvFavoritesShow.setTextColor(resources.getColor(R.color.teal_200))
             } else {
                 getMovies()
-                Toast.makeText(context,"movie",Toast.LENGTH_LONG).show()
                 rvFavoritesMovies.visibility = View.VISIBLE
                 rvFavoritesShows.visibility = View.INVISIBLE
-                tvShowsFavorites.setTextColor(resources.getColor(android.R.color.holo_orange_light))
+                tvFavoritesShow.setTextColor(resources.getColor(android.R.color.holo_orange_light))
                 tvMoviesFavorites.setTextColor(resources.getColor(R.color.teal_200))
             }
         }
