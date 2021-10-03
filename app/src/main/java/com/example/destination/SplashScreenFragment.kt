@@ -35,11 +35,11 @@ class SplashScreenFragment : Fragment() {
 
 
         Handler(Looper.getMainLooper ()).postDelayed({
-//        if(onBoardingFinished()){
-//            findNavController().navigate(R.id.action_splashScreenFragment_to_homeFragment2)
-//        }else{
+        if(onBoardingFinished()){
+            findNavController().navigate(R.id.action_splashScreenFragment_to_homeFragment2)
+        }else{
             findNavController().navigate(R.id.action_splashScreenFragment_to_viewPagerFragment)
-//        }
+        }
     }, 2500)
 
         // Inflate the layout for this fragment
@@ -50,15 +50,17 @@ class SplashScreenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         ivSplash.alpha = 0.0f
         ivSplash.animate().apply {
-//            alpha(0.0f)
-            duration = 1500
+            duration = 2000
+            scaleX(1.3f)
+            scaleY(1.3f)
             alpha(1.0f)
+
         }.start()
     }
 
-//    private fun onBoardingFinished(): Boolean{
-//        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-//        return sharedPref.getBoolean("Finished", false)
-//    }
+    private fun onBoardingFinished(): Boolean{
+        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        return sharedPref.getBoolean("Finished", false)
+    }
 
 }

@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.example.destination.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_splash_screen.*
+import kotlinx.android.synthetic.main.fragment_splash_screen.ivSplash
+import kotlinx.android.synthetic.main.fragment_two_screen.*
 import kotlinx.android.synthetic.main.fragment_two_screen.view.*
 
 
@@ -40,5 +43,7 @@ class TwoScreenFragment : Fragment() {
 
         return view
     }
+
+
 
 }
