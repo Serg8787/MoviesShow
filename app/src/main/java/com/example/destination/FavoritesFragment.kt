@@ -19,6 +19,7 @@ import com.example.destination.models.show.ShowResult
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_favorites.*
 import kotlinx.android.synthetic.main.fragment_movie.*
+import kotlinx.android.synthetic.main.fragment_show.*
 
 
 /**
@@ -53,6 +54,7 @@ class ActorFragment : Fragment() {
 
         setupRecyclerView()
         getMovies()
+        tvMoviesFavorites.setTextColor(resources.getColor(R.color.teal_200))
 
         swFavorites.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
@@ -60,11 +62,15 @@ class ActorFragment : Fragment() {
                 Toast.makeText(context,"show",Toast.LENGTH_LONG).show()
                 rvFavoritesMovies.visibility = View.INVISIBLE
                 rvFavoritesShows.visibility = View.VISIBLE
+                tvMoviesFavorites.setTextColor(resources.getColor(android.R.color.holo_orange_light))
+                tvShowsFavorites.setTextColor(resources.getColor(R.color.teal_200))
             } else {
                 getMovies()
                 Toast.makeText(context,"movie",Toast.LENGTH_LONG).show()
                 rvFavoritesMovies.visibility = View.VISIBLE
                 rvFavoritesShows.visibility = View.INVISIBLE
+                tvShowsFavorites.setTextColor(resources.getColor(android.R.color.holo_orange_light))
+                tvMoviesFavorites.setTextColor(resources.getColor(R.color.teal_200))
             }
         }
 

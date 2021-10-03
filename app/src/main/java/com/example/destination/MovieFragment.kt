@@ -60,19 +60,24 @@ class MovieFragment : Fragment() {
 
         switchMoviews.isChecked = false
         getTopRatedMoviesData()
-        tvPopularityMovie.setTextColor(ColorStateList.valueOf(R.color.cardview_shadow_end_color))
+        tvPopularityMovie.setTextColor(resources.getColor(R.color.teal_200))
 
         switchMoviews.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
                 getPopularityMoviesData()
                 rvTopRatedMovie.visibility = View.GONE
                 rvPopularityMovie.visibility = View.VISIBLE
+                tvPopularityMovie.setTextColor(resources.getColor(android.R.color.holo_orange_light))
+                tvTopRatedMovie.setTextColor(resources.getColor(R.color.teal_200))
 
             } else {
                 getTopRatedMoviesData()
                 rvTopRatedMovie.visibility = View.VISIBLE
                 rvPopularityMovie.visibility = View.GONE
-                tvTopRatedMovie.setTextColor(ColorStateList.valueOf(R.color.teal_200))
+                tvPopularityMovie.setTextColor(resources.getColor(R.color.teal_200))
+                tvTopRatedMovie.setTextColor(resources.getColor(android.R.color.holo_orange_light))
+
+
 
 
             }

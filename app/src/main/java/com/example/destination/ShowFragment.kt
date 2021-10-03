@@ -59,6 +59,8 @@ class ShowFragment : Fragment() {
         setupRecyclerView()
         switchShows.isChecked = false
 
+        tvPopularityShow.setTextColor(resources.getColor(R.color.teal_200))
+
 
         getTopRatedShowsData()
         switchShows.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -66,10 +68,14 @@ class ShowFragment : Fragment() {
                 getPopularityShowsData()
                 rvTopRatedShow.visibility = View.GONE
                 rvPopularityShow.visibility = View.VISIBLE
+                tvPopularityShow.setTextColor(resources.getColor(android.R.color.holo_orange_light))
+                tvTopRatedShow.setTextColor(resources.getColor(R.color.teal_200))
             } else {
                 getTopRatedShowsData()
                 rvTopRatedShow.visibility = View.VISIBLE
                 rvPopularityShow.visibility = View.GONE
+                tvPopularityShow.setTextColor(resources.getColor(R.color.teal_200))
+                tvTopRatedShow.setTextColor(resources.getColor(android.R.color.holo_orange_light))
 
             }
         }
