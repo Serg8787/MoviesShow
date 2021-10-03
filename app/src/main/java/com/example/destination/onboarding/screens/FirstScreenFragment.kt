@@ -27,10 +27,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
  * create an instance of this fragment.
  */
 class FirstScreenFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,11 +36,7 @@ class FirstScreenFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val view =  inflater.inflate(com.example.destination.R.layout.fragment_first_screen, container, false)
-
-
-
         val viewPager =  activity?.findViewById<ViewPager2>(com.example.destination.R.id.viewPager)
-
         view.btNextFirst.setOnClickListener {
             viewPager?.currentItem = 1
         }
