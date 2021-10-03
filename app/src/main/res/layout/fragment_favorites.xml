@@ -12,33 +12,41 @@
         android:id="@+id/tvMoviesFavorites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="30dp"
+        android:padding="5dp"
         android:text="Movies"
-        android:textSize="30sp"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="15dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <Switch
         android:id="@+id/swFavorites"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        android:layout_marginStart="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMoviesFavorites"
         app:layout_constraintStart_toEndOf="@id/tvMoviesFavorites"
-        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/tvMoviesFavorites"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="Shows"
-        android:textSize="30sp"
+        android:gravity="left"
+        android:padding="5dp"
+        android:text="Popularity"
+        android:textColor="@android:color/holo_orange_light"
+        android:textStyle="bold"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/swFavorites"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="@+id/swFavorites"
+        app:layout_constraintBottom_toBottomOf="@+id/swFavorites"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFavoritesMovies"

@@ -1,5 +1,7 @@
 package com.example.destination
 
+import android.annotation.SuppressLint
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -42,10 +44,11 @@ class MovieFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_movie, container, false)
-        inflater.context.setTheme(R.style.TextAppearance_AppCompat_Display1)
+
 
 
     }
+    @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -57,16 +60,20 @@ class MovieFragment : Fragment() {
 
         switchMoviews.isChecked = false
         getTopRatedMoviesData()
+        tvPopularityMovie.setTextColor(ColorStateList.valueOf(R.color.cardview_shadow_end_color))
 
         switchMoviews.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
                 getPopularityMoviesData()
                 rvTopRatedMovie.visibility = View.GONE
                 rvPopularityMovie.visibility = View.VISIBLE
+
             } else {
                 getTopRatedMoviesData()
                 rvTopRatedMovie.visibility = View.VISIBLE
                 rvPopularityMovie.visibility = View.GONE
+                tvTopRatedMovie.setTextColor(ColorStateList.valueOf(R.color.teal_200))
+
 
             }
         }

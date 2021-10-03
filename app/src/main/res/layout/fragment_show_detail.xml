@@ -55,6 +55,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="TextView"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guidelineCenter"
                 app:layout_constraintTop_toBottomOf="@+id/ivChangeToFavouriteShow" />
@@ -80,6 +82,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="TextView"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guidelineCenter"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitleShowDetail" />
@@ -104,6 +108,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="TextView"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@+id/guidelineCenter"
                 app:layout_constraintTop_toBottomOf="@+id/tvOriginalTitleShowDetail" />
 
@@ -128,6 +134,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="TextView"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guidelineCenter"
                 app:layout_constraintTop_toBottomOf="@+id/tvRatingShowDetail" />
@@ -152,6 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:text="TextView"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewLabelDescriptionShow" />
@@ -187,7 +196,6 @@
                 android:id="@+id/rvTrailerShow"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_margin="10dp"
                 android:nestedScrollingEnabled="false"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -212,7 +220,6 @@
                 android:id="@+id/rvReviewsShow"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_margin="10dp"
                 android:visibility="gone"
                 android:orientation="vertical"
                 android:nestedScrollingEnabled="false"
@@ -228,7 +235,7 @@
         android:id="@+id/bottomNavViewAnonimShow"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:ignore="MissingConstraints"
