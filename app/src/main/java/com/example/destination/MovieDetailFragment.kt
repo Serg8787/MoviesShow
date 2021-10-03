@@ -98,6 +98,9 @@ class MovieDetailFragment : Fragment() {
             override fun onResponse(call: Call<Reviews>, response: Response<Reviews>) {
                 Log.d("MyLog", response.body().toString())
                 reviews = response.body()?.results as ArrayList<ReviewResult>
+                if(response.body()!!.results.isEmpty()){
+                    textViewLabelReviews.visibility = View.GONE
+                }
                 adapterReview = ReviewAdapter(reviews)
                 rvReviewsMovie.adapter = adapterReview
             }
