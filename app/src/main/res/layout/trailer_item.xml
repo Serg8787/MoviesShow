@@ -15,6 +15,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="8dp"
+            android:background="@android:color/holo_red_dark"
             android:contentDescription="@string/launch_trailer"
             android:src="@android:drawable/ic_media_play"
             app:layout_constraintBottom_toBottomOf="parent"

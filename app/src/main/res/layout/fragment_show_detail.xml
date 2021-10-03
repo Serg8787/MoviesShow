@@ -34,6 +34,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Название:"
+                android:textSize="15dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/tvTitleShowDetail"
                 app:layout_constraintStart_toStartOf="@+id/textViewLabelOriginalTitleShow"
                 app:layout_constraintTop_toTopOf="@+id/tvTitleShowDetail" />
@@ -63,6 +66,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Оригинальное название:"
+                android:textSize="15dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitleShowDetail" />
 
@@ -85,6 +91,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Рейтинг:"
+                android:textSize="15dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvOriginalTitleShowDetail" />
 
@@ -105,6 +114,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Дата релиза:"
+                android:textSize="15dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvRatingShowDetail" />
 
@@ -124,19 +136,23 @@
                 android:id="@+id/textViewLabelDescriptionShow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:gravity="center"
                 android:text="Описание:"
+                android:textColor="@android:color/holo_orange_light"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvReleaseDateShowDetail" />
 
             <TextView
                 android:id="@+id/tvOverviewShowDetail"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_margin="8dp"
                 android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewLabelDescriptionShow" />
 
@@ -153,6 +169,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBigPosterShow"
                 app:srcCompat="@drawable/icons8_heart_not_favorite" />
 
+            <TextView
+                android:id="@+id/textViewLabelTrailerShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Список трейлеров"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOverviewShowDetail" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTrailerShow"
                 android:layout_width="match_parent"
@@ -161,8 +191,22 @@
                 android:nestedScrollingEnabled="false"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@+id/tvOverviewShowDetail"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelTrailerShow"
                 tools:layout_editor_absoluteX="10dp" />
+
+            <TextView
+                android:id="@+id/textViewLabelReviewsShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Список отзывов"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvTrailerShow" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvReviewsShow"
@@ -173,7 +217,7 @@
                 android:orientation="vertical"
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@+id/rvTrailerShow"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelReviewsShow"
                 tools:layout_editor_absoluteX="10dp" />
 
 

@@ -75,6 +75,9 @@ class ShowDetailFragment : Fragment() {
         retrofit.getTrailerShow(id,"fa98e12ff4452abc0e83ab5585e62d3c").enqueue(object : retrofit2.Callback<TrailerList>{
             override fun onResponse(call: Call<TrailerList>, response: Response<TrailerList>) {
                 trailers = response.body()?.results as ArrayList<TrailerResult>
+                if(response.body()!!.results.isEmpty()){
+                    textViewLabelTrailerShow.visibility = View.GONE
+                }
                 adapterTrailer = TrailerAdapter(trailers)
                 rvTrailerShow.adapter = adapterTrailer
                 adapterTrailer.onClickTrailerItem = object : OnClickTrailerItem {
@@ -94,6 +97,9 @@ class ShowDetailFragment : Fragment() {
         retrofit.getReviewsShow(id,"fa98e12ff4452abc0e83ab5585e62d3c").enqueue(object :retrofit2.Callback<Reviews>{
             override fun onResponse(call: Call<Reviews>, response: Response<Reviews>) {
                 Log.d("MyLog", response.body().toString())
+                if(response.body()!!.results.isEmpty()){
+                    textViewLabelReviewsShow.visibility = View.GONE
+                }
                 reviews = response.body()?.results as ArrayList<ReviewResult>
                 adapterReview = ReviewAdapter(reviews)
                 rvReviewsShow.adapter = adapterReview
