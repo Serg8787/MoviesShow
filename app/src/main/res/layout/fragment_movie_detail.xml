@@ -36,6 +36,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Название:"
+                android:textSize="15dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ivChangeToFavouriteMovie" />
 
@@ -65,6 +68,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Оригинальное название:"
+                android:textSize="15dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitleMovieDetail" />
 
@@ -87,6 +93,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Рейтинг:"
+                android:textSize="15dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvOriginalTitleMovieDetail" />
 
@@ -107,6 +116,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Дата релиза:"
+                android:textSize="15dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvRatingMovieDetail" />
 
@@ -126,19 +138,24 @@
                 android:id="@+id/textViewLabelDescriptionMovie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Описание:"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvReleaseDateMovieDetail" />
 
             <TextView
                 android:id="@+id/tvOverviewMovieDetail"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewLabelDescriptionMovie" />
 
@@ -153,6 +170,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageViewBigPosterMovie"
                 app:srcCompat="@drawable/icons8_heart_rose" />
 
+            <TextView
+                android:id="@+id/textViewLabelTrailer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Список трейлеров"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_orange_light"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOverviewMovieDetail" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvTrailerMovie"
                 android:layout_width="match_parent"
@@ -161,7 +192,7 @@
                 android:orientation="vertical"
                 android:nestedScrollingEnabled="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintTop_toBottomOf="@+id/tvOverviewMovieDetail"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLabelTrailer"
                 tools:layout_editor_absoluteX="10dp" />
 
             <androidx.recyclerview.widget.RecyclerView

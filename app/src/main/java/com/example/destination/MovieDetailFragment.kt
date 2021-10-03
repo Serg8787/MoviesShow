@@ -73,7 +73,12 @@ class MovieDetailFragment : Fragment() {
         retrofit.getTrailerMovie(id,"fa98e12ff4452abc0e83ab5585e62d3c").enqueue(object :retrofit2.Callback<TrailerList>{
             override fun onResponse(call: Call<TrailerList>, response: Response<TrailerList>) {
                 Log.d("MyLog", response.body().toString())
+
                  trailers = response.body()?.results as ArrayList<TrailerResult>
+                if(response.body()!!.results.isEmpty()){
+                    textViewLabelTrailer.visibility = View.GONE
+                }
+
                 adapterTrailer = TrailerAdapter(trailers)
                 rvTrailerMovie.adapter = adapterTrailer
                 adapterTrailer.onClickTrailerItem = object : OnClickTrailerItem{
