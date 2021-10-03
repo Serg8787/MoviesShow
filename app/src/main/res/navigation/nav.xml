@@ -41,7 +41,8 @@
         <action
             android:id="@+id/action_movieFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment"
-            app:enterAnim="@anim/left" />
+            app:enterAnim="@anim/bottom_right"
+            app:popEnterAnim="@anim/top_left" />
         <argument
             android:name="movie"
             app:argType="com.example.destination.model.movie.MovieResult" />
@@ -53,7 +54,9 @@
         tools:layout="@layout/fragment_show" >
         <action
             android:id="@+id/action_showFragment2_to_showDetailFragment"
-            app:destination="@id/showDetailFragment" />
+            app:destination="@id/showDetailFragment"
+            app:enterAnim="@anim/bottom_right"
+            app:popEnterAnim="@anim/top_left" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailFragment"
@@ -63,7 +66,10 @@
         <action
             android:id="@+id/action_movieDetailFragment_to_homeFragment2"
             app:destination="@id/movieFragment"
-            app:popUpToInclusive="false" />
+            app:exitAnim="@anim/top_left"
+            app:enterAnim="@anim/top_left"
+            app:popEnterAnim="@anim/top_left"
+            app:popExitAnim="@anim/top_left" />
     </fragment>
     <fragment
         android:id="@+id/showDetailFragment"
@@ -81,10 +87,14 @@
         tools:layout="@layout/fragment_favorites" >
         <action
             android:id="@+id/action_FavoritesFragment_to_movieDetailFragment"
-            app:destination="@id/movieDetailFragment" />
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/bottom_right"
+            app:popEnterAnim="@anim/top_left" />
         <action
             android:id="@+id/action_FavoritesFragment_to_showDetailFragment"
-            app:destination="@id/showDetailFragment" />
+            app:destination="@id/showDetailFragment"
+            app:enterAnim="@anim/bottom_right"
+            app:popEnterAnim="@anim/top_left" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -96,7 +106,8 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_settingsFragment_to_aboutAuthorFragment"
-            app:destination="@id/aboutAuthorFragment" />
+            app:destination="@id/aboutAuthorFragment"
+            app:enterAnim="@anim/bottom_right" />
     </fragment>
     <fragment
         android:id="@+id/aboutAuthorFragment"
